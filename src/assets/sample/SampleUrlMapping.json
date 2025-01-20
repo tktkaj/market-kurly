@@ -1,0 +1,52 @@
+{
+    "container": {
+        "name": "containter",
+        "urlList": [
+            {
+                "url": "/samples/SampleBridge",
+                "filePath": "/samples/SampleBridge",
+                "menuId": "SampleBridge"
+            },
+            {
+                "url": "/samples/SampleDialog",
+                "filePath": "/samples/SampleDialog",
+                "menuId": "SampleDialog"
+            },
+            {
+                "url": "/samples/SampleHistory",
+                "filePath": "/samples/SampleHistory",
+                "menuId": "SampleHistory"
+            },
+            {
+                "url": "/",
+                "filePath": "/samples/SampleMain",
+                "menuId": "SampleMain"
+            },
+            {
+                "url": "/samples/SampleApi",
+                "filePath": "/samples/SampleApi",
+                "menuId": "SampleApi"
+            },
+            {
+                "url": "/FG/FGMK/FGMKHM/FGMKHM001",
+                "filePath": "/FG/FGMK/FGMKHM/FGMKHM001/FGMKHM001",
+                "menuId": "FGMKHM001"
+            },
+            {
+                "url": "/FG/FGMK/FGMKLO/FGMKLO002",
+                "filePath": "/FG/FGMK/FGMKLO/FGMKLO002/FGMKLO002",
+                "menuId": "FGMKLO002"
+            },
+            {
+                "url": "/FG/FGMK/FGMKPR/FGMKPR003",
+                "filePath": "/FG/FGMK/FGMKPR/FGMKPR003/FGMKPR003",
+                "menuId": "FGMKPR003"
+            },
+            {
+                "url": "/FG/FGMK/FGMKDT/FGMKDT004",
+                "filePath": "/FG/FGMK/FGMKDT/FGMKDT004/FGMKDT004",
+                "menuId": "FGMKDT004"
+            }
+        ]
+    }
+}
