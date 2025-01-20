@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import FGMKDT00402 from "./FGMKDT00402";
-import BaseSelect from "../../../../com/base/BaseBaseSelect"
+import BaseSelect from "../../../../com/base/BaseSelect";
+import BaseButton from "../../../../com/base/BaseButton";
 function FGMKDT00403({ setTotalPrice }) {
   const product = {
     dileveryType: "샛별배송",
@@ -66,7 +67,11 @@ function FGMKDT00403({ setTotalPrice }) {
       alt=""
     />
   );
+  const heartIconSrc =
+    "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Ik0yNS44MDcgNy44NjNhNS43NzcgNS43NzcgMCAwIDAtOC4xNzIgMEwxNiA5LjQ5N2wtMS42MzUtMS42MzRhNS43NzkgNS43NzkgMCAxIDAtOC4xNzMgOC4xNzJsMS42MzQgMS42MzQgNy40NjYgNy40NjdhMSAxIDAgMCAwIDEuNDE1IDBzMCAwIDAgMGw3LjQ2Ni03LjQ2N2gwbDEuNjM0LTEuNjM0YTUuNzc3IDUuNzc3IDAgMCAwIDAtOC4xNzJ6IiBzdHJva2U9IiM1RjAwODAiIHN0cm9rZS13aWR0aD0iMS42IiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L3N2Zz4K";
 
+  const bellIconSrc =
+    "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIHN0cm9rZT0iI0NDQyIgc3Ryb2tlLXdpZHRoPSIxLjYiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTEyLjY2NiAyM2EzLjMzMyAzLjMzMyAwIDEgMCA2LjY2NiAwIi8+CiAgICAgICAgPHBhdGggZD0iTTI1Ljk5OCAyMi43MzhINmwuMDEzLS4wM2MuMDc2LS4xMzUuNDcxLS43MDQgMS4xODYtMS43MDlsLjc1LTEuMDV2LTYuNjM1YzAtNC40ODUgMy40MzgtOC4xNCA3Ljc0MS04LjMwOEwxNiA1YzQuNDQ2IDAgOC4wNSAzLjcyMiA4LjA1IDguMzE0djYuNjM0bDEuNzA3IDIuNDExYy4xNzMuMjUzLjI1NC4zOC4yNDIuMzh6IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KICAgIDwvZz4KPC9zdmc+Cg==";
   return (
     <ShoppingOptionsLayout>
       <ProductTitle>
@@ -98,6 +103,26 @@ function FGMKDT00403({ setTotalPrice }) {
           </StyledDd>
         </DetailItem>
       </DetailList>
+      <TotalPriceDiv>
+        총 상품금액:
+        {/* 변수로 바꿀것 */}
+        <span>10,965원</span>
+      </TotalPriceDiv>
+      <UtilButtonDiv>
+        <IconButtonDiv>
+          <img src={heartIconSrc} alt="" />
+        </IconButtonDiv>
+        <IconButtonDiv>
+          <img src={bellIconSrc} alt="" />
+        </IconButtonDiv>
+        <BaseButton
+          btnText="장바구니 담기"
+          size="lg"
+          variant="purple"
+          type="button"
+          onClick={() => {}}
+        />
+      </UtilButtonDiv>
     </ShoppingOptionsLayout>
   );
 }
@@ -119,5 +144,18 @@ const DetailItem = styled.li`
 `;
 const StyledDt = styled.dt``;
 const StyledDd = styled.dd``;
-
+const TotalPriceDiv = styled.div``;
+const UtilButtonDiv = styled.div`
+  display: flex;
+  gap: 10px;
+`;
+const IconButtonDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 1px solid #e2e2e2;
+  border-radius: 4px;
+`;
 export default FGMKDT00403;
