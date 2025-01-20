@@ -14,12 +14,17 @@ function FGMKDT00401() {
 
 const DetailNavBox = styled.div`
   display: flex;
+  margin-top: 100px;
+  margin-bottom: 40px;
+  position: sticky;
+  top: 61px;
+  z-index: 1000;
 `;
 
 const DetailButton = styled.button`
   background-color: #fafafa;
   border: 1px solid #eee;
-  width: 250px;
+  width: 253px;
   padding: 20px 0;
 `;
 
