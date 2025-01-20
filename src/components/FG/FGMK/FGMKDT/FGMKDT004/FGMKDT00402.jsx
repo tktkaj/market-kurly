@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-
 function FGMKDT00402({ price }) {
   return (
     <SaleNowCouponLayout>

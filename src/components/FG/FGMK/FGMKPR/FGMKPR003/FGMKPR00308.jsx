@@ -1,21 +1,20 @@
 import React from "react";
-import SimpleFilter from "./SimpleFilter";
 import styled from "styled-components";
-import Card from "../../card/Card";
-import Pagenation from "./Pagenation";
-
+import CustomCard from "./../../../../com/custom/CustomCard";
+import FGMKPR00307 from "./FGMKPR00307";
+import FGMKPR00303 from "./FGMKPR00303";
 function FGMKPR00308({ totalCount, setSimpleFilter, products, setPage }) {
   return (
     <ProductListLayout>
-      <SimpleFilter totalCount={totalCount} setSimpleFilter={setSimpleFilter} />
+      <FGMKPR00303 totalCount={totalCount} setSimpleFilter={setSimpleFilter} />
       <ProductListBox>
         {products &&
           products.map((product, index) => (
-            <Card key={product + index} product={product} />
+            <CustomCard key={product + index} product={product} />
           ))}
       </ProductListBox>
       <ProductPagenationBox>
-        <Pagenation setPage={setPage} />
+        <FGMKPR00307 setPage={setPage} />
       </ProductPagenationBox>
     </ProductListLayout>
   );

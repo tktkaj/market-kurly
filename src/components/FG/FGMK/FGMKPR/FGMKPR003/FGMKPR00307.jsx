@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import PagenationBtn from "./PagenationBtn";
+import FGMKPR00306 from "./FGMKPR00306";
 function FGMKPR00307({ setPage }) {
   const btnContents = [
     <img
@@ -26,7 +26,7 @@ function FGMKPR00307({ setPage }) {
   return (
     <PagenationBox>
       {btnContents.map((btnContent, index) => (
-        <PagenationBtn
+        <FGMKPR00306
           key={`btnContent + ${index}`}
           children={btnContent}
           onClick={handlePage}

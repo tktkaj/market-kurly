@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import SimpleFilterList from "./SimpleFilterList";
+import FGMKPR00304 from "./FGMKPR00304"
 function FGMKPR00303({ totalCount, setSimpleFilter }) {
   return (
     <SimpleFilterBox>
       <StyledCount>총{totalCount || null}건</StyledCount>
-      <SimpleFilterList setSimpleFilter={setSimpleFilter} />
+      <FGMKPR00304 setSimpleFilter={setSimpleFilter} />
     </SimpleFilterBox>
   );
 }
