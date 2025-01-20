@@ -2,12 +2,12 @@ import React, { useRef } from "react";
 import styled from "styled-components";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
-import CustomCard from "../../../../com/custom/CustomCustomCard";
+import CustomCard from "../../../../com/custom/CustomCard";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-const FGMKHM00102 = (arr, size) =>
+const chunk = (arr, size) =>
   Array.from({ length: Math.ceil(arr.length / size) }, (v, i) =>
     arr.slice(i * size, i * size + size)
   );

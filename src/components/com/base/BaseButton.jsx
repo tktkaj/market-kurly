@@ -15,7 +15,7 @@ const Button = styled.button`
   border-radius: 4px;
 `;
 
-function BaseButtonw({ variant, type, btnText, size, onClick }) {
+function BaseButton({ variant, type, btnText, size, onClick }) {
   const form = {
     sm: { width: "240px", height: "56px" },
     ml: { width: "350px", height: "54px" },

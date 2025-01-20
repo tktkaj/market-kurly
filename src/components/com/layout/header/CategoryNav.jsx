@@ -1,10 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import CategoryItem from "./CategoryItem";
-import useMovePage from "../../../hooks/useMovePage";
 
 function CategoryNav() {
-  const { makeRequest } = useMovePage();
+
   const categoryItems = [
     {
       name: "신상품",
@@ -32,7 +31,6 @@ function CategoryNav() {
             key={categoryItem.name + index}
             categoryName={categoryItem.name}
             onClick={() => {
-              makeRequest(categoryItem.url);
             }}
           />
         ))}

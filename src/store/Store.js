@@ -3,6 +3,7 @@ import CounterReducer from "./reducers/StoreCounter";
 import LayerReducer from "./reducers/StoreLayer";
 import HistoryReducer from "./reducers/StoreHistory";
 import CoreReducer from "./reducers/StoreCore";
+import userInfoReducer from './reducers/StoreUser';
 
 const getStore = () => {
 
@@ -12,7 +13,8 @@ const getStore = () => {
                 CounterReducer,
                 LayerReducer,
                 HistoryReducer,
-                CoreReducer
+                CoreReducer,
+                userInfoReducer
             },
             middleware: (getDefaultMiddleware) => getDefaultMiddleware({
                 serializableCheck: false,

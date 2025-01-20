@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import SmallWhiteBtn from "../../components/common/button/SmallWhiteBtn";
-
+import CustomFooterButton from "../custom/CustomFooterButton";
 function LayoutFooter() {
   return (
     <FooterContainer>
@@ -22,7 +21,7 @@ function LayoutFooter() {
           </strong>
           <InqueryContainer>
             <InqueryWrapper>
-              <SmallWhiteBtn btnText={"카카오톡 문의"}></SmallWhiteBtn>
+              <CustomFooterButton btnText={"카카오톡 문의"}></CustomFooterButton>
               <InqeuryTextBox>
                 월~토요일
                 <svg
@@ -64,7 +63,7 @@ function LayoutFooter() {
               </InqeuryTextBox>
             </InqueryWrapper>
             <InqueryWrapper>
-              <SmallWhiteBtn btnText={"1:1문의"}></SmallWhiteBtn>
+              <CustomFooterButton btnText={"1:1문의"}></CustomFooterButton>
               <InqeuryTextBox>
                 365일
                 <br />
@@ -72,7 +71,7 @@ function LayoutFooter() {
               </InqeuryTextBox>
             </InqueryWrapper>
             <InqueryWrapper>
-              <SmallWhiteBtn btnText={"대량주문 문의"}></SmallWhiteBtn>
+              <CustomFooterButton btnText={"대량주문 문의"}></CustomFooterButton>
               <InqeuryTextBox>
                 월~금요일
                 <svg

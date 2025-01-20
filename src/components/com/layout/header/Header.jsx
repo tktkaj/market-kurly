@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import UtilMenu from "../../layouts/header/UtilMenu";
+import UtilMenu from "../header/UtilMenu";
 import BrandNavigator from "./BrandNavigator";
 import SearchBar from "./SearchBar";
 import MyMenu from "./MyMenu";

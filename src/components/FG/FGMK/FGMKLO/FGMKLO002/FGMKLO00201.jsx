@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import BaseInput from "../../../../com/base/BaseInput";
+import BaseInput from "../../../../com/base/BaseInput"
 import BaseButton from "../../../../com/base/BaseButton"
 
 function FGMKLO00201({ onClick, onChangeUserId, onChangeUserPw }) {
@@ -21,10 +21,10 @@ function FGMKLO00201({ onClick, onChangeUserId, onChangeUserPw }) {
         />
       </LoginFormBox>
       <LoginUtilBox>
-        <StyledLink href="/find-id" onClick={handleFindId}>
+        <StyledLink href="/find-id" onClick={()=>{}}>
           아이디 찾기
         </StyledLink>
-        <StyledLink href="/find-password" onClick={handleFindPass}>
+        <StyledLink href="/find-password" onClick={()=>{}}>
           비밀번호 찾기
         </StyledLink>
       </LoginUtilBox>
@@ -43,7 +43,7 @@ function FGMKLO00201({ onClick, onChangeUserId, onChangeUserPw }) {
           variant="outlinePurple"
           btnText="회원가입"
           size="ml"
-          onClick={handleJoinUser}
+          onClick={()=>{}}
         >
           로그인
         </BaseButton>{" "}

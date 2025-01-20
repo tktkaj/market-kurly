@@ -56,6 +56,12 @@ function SampleMain() {
 
                 core.goPage("samples/SampleApi");
             }}/>
+            <br/><br/>
+            <SampleLink title="Market Kurly 페이지로 이동" to="FG/FGMK/FGMKHM/FGMKHM001" onClick={() => {
+                console.log('링크 클릭 실행됨');
+
+                core.goPage("FG/FGMK/FGMKHM/FGMKHM001");
+            }}/>
         </>
     )
 }

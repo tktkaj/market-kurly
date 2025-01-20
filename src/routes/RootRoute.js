@@ -7,6 +7,7 @@ import menuDataJson from "../assets/sample/SampleUrlMapping.json";
 import RouteComponent from "./RouteComponent";
 import SampleError from "../pages/samples/SampleError";
 
+
 function RootRoute() {
     return (
             <BrowserRouter>

@@ -6,7 +6,7 @@ const linkStyle = {
 
 function SampleLink({to, title, onClick}) {
     const core = useCore();
-
+    console.log(to);
     const onLinkClick = (event) => {
         event.preventDefault();
 

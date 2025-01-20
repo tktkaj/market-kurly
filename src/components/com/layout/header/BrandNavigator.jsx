@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import BrandSelector from "../../layouts/header/BrandSlector";
-import useMovePage from "../../../hooks/useMovePage";
+import BrandSelector from "../header/BrandSlector";
+
 
 function BrandNavigator() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const { makeRequest } = useMovePage();
   const brands = [
     { name: "마켓컬리", url: "" },
     { name: "뷰티컬리", url: "" },
@@ -25,7 +24,6 @@ function BrandNavigator() {
     <BrandNavigatorLayout>
       <LogoBox
         onClick={() => {
-          makeRequest("/FG/FGMK/FGMKHM/FGMKHM001", {});
         }}
       >
         {logo}

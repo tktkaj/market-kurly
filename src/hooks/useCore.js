@@ -34,11 +34,10 @@ function useCore() {
 
         if(historyList.length === 0) {
             navigate('/');
-            return;
         }
 
         if(num) {
-            if(historyList.length - num > 0) {
+            if(historyList.length - num >= 0) {
                 dispatch(
                     removeHistoryList(num)
                 )

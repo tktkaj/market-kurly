@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import CustomCartButton from "../custom/CustomCartButton";
-import CustomCoupon from "../CustomCoupon/CustomCoupon";
+import CustomCoupon from "./CustomCoupon";
 
 function CustomCard({ product, onClick }) {
 

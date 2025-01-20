@@ -3,23 +3,26 @@ import DialogComponent from "./components/com/dialog/DialogComponent";
 import RootRoute from "./routes/RootRoute";
 import { useDispatch, useSelector } from "react-redux";
 import LayoutPage from "./components/com/layout/LayoutPage";
-
+import LayoutFooter from "../src/components/com/layout/LayoutFooter";
+import Header from "../src/components/com/layout/header/Header";
 function App() {
+  const { historyList, nowPageParam } = useSelector(
+    (state) => state.HistoryReducer
+  );
 
-  const { historyList, nowPageParam } = useSelector((state) => state.HistoryReducer);
-
-  useEffect(()=>{
-    console.log('historyList : ', historyList, 'pageParmas : ', nowPageParam);
-    
-  },[historyList])
+  useEffect(() => {
+    console.log("historyList : ", historyList, "pageParmas : ", nowPageParam);
+  }, [historyList]);
 
   return (
     <>
       <LayoutPage>
+        <Header />
         <RootRoute />
       </LayoutPage>
-        
+
       <DialogComponent />
+      <LayoutFooter />
     </>
   );
 }
