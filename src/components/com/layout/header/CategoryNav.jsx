@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import CategoryItem from "./CategoryItem";
-
+import useCore from "../../../../hooks/useCore";
 function CategoryNav() {
-
+  const core = useCore();
   const categoryItems = [
     {
       name: "신상품",
@@ -31,6 +31,7 @@ function CategoryNav() {
             key={categoryItem.name + index}
             categoryName={categoryItem.name}
             onClick={() => {
+              core.goPage(categoryItem.url);
             }}
           />
         ))}

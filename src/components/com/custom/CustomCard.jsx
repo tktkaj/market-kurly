@@ -2,11 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import CustomCartButton from "../custom/CustomCartButton";
 import CustomCoupon from "./CustomCoupon";
-
+import useCore from "../../../hooks/useCore";
 function CustomCard({ product, onClick }) {
-
+const core = useCore();
   return (
-    <StyledCardDiv onClick={()=>{}}>
+    <StyledCardDiv onClick={()=>{core.goPage(product.url)}}>
       <StyledImgDiv>
         <CustomCoupon value={product.sale} disable={product.disable} />
         <StyledImg src={product.img} />

@@ -1,4 +1,3 @@
-// userInfoSlice.js
 import { createSlice } from "@reduxjs/toolkit";
 
 const userInfoSlice = createSlice({
@@ -8,6 +7,7 @@ const userInfoSlice = createSlice({
   },
   reducers: {
     setUserInfo(state, action) {
+      console.log("slice에서" + action.payload);
       state.id = action.payload;
     },
     clearUserInfo(state) {

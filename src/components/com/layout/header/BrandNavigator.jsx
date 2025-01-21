@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import BrandSelector from "../header/BrandSlector";
-
+import useCore from "../../../../hooks/useCore";
 
 function BrandNavigator() {
+  const core = useCore();
   const [activeIndex, setActiveIndex] = useState(0);
   const brands = [
     { name: "마켓컬리", url: "" },
@@ -23,7 +24,7 @@ function BrandNavigator() {
   return (
     <BrandNavigatorLayout>
       <LogoBox
-        onClick={() => {
+        onClick={() => {core.goPage("/FG/FGMK/FGMKHM/FGMKHM001")
         }}
       >
         {logo}

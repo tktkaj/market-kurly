@@ -14,7 +14,7 @@ const getStore = () => {
                 LayerReducer,
                 HistoryReducer,
                 CoreReducer,
-                userInfoReducer
+                userInfo: userInfoReducer, 
             },
             middleware: (getDefaultMiddleware) => getDefaultMiddleware({
                 serializableCheck: false,

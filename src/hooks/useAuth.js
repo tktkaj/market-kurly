@@ -4,17 +4,17 @@ import { setUserInfo, clearUserInfo } from "../store/reducers/StoreUser";
 const useAuth = () => {
   const dispatch = useDispatch();
 
-  const userId = useSelector((state) => state.userInfo?.id);
-  const login = (id) => {
+  const user = useSelector((state) => state.userInfo?.id);
+  const login = (id, callback) => {
+    console.log("useAuth에서" + id);
     dispatch(setUserInfo(id));
+    if (callback) callback();
   };
 
   const logout = () => {
     dispatch(clearUserInfo());
   };
-
   return {
-    userId,
     login,
     logout,
   };

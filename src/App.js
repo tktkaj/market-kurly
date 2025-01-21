@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import LayoutPage from "./components/com/layout/LayoutPage";
 import LayoutFooter from "../src/components/com/layout/LayoutFooter";
 import Header from "../src/components/com/layout/header/Header";
-import LayoutStickyHeader from "../src/components/com/layout/LayoutStickyHeader"
+import LayoutStickyHeader from "../src/components/com/layout/LayoutStickyHeader";
 function App() {
   const { historyList, nowPageParam } = useSelector(
     (state) => state.HistoryReducer
@@ -18,8 +18,6 @@ function App() {
   return (
     <>
       <LayoutPage>
-        <LayoutStickyHeader/>
-        <Header />
         <RootRoute />
       </LayoutPage>
 

@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import UtilItem from "../header/UtilItem";
-
+import useCore from "../../../../hooks/useCore";
+import { useSelector } from "react-redux";
 function UtilMenu() {
+  const [loginText, SetLoginText] = useState("로그인");
+  const user = useSelector((state) => state.userInfo.id);
+  const core = useCore();
   const utils = [
     { name: "회원가입", url: "/signup" },
-    { name: "로그인", url: "/FG/FGMK/FGMKLO/FGMKLO002" },
+    { name: loginText, url: "/FG/FGMK/FGMKLO/FGMKLO002" },
     { name: "고객센터", url: "/customer-service" },
   ];
 
@@ -17,15 +21,20 @@ function UtilMenu() {
     />
   );
 
+
   const handleClick = (url) => (e) => {
     if (url === "*") {
       e.preventDefault();
-      // 여기에 "*" URL에 대한 특별한 처리를 추가할 수 있습니다.
-      console.log("특별한 처리가 필요한 메뉴 클릭됨");
+
     } else {
-      window.location.href = url;
+      core.goPage(url);
     }
   };
+  
+
+  useEffect(() => {
+    if (user) SetLoginText("로그아웃");
+  }, []);
 
   return (
     <UtilMenuLayout>

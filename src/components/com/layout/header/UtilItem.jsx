@@ -21,6 +21,7 @@ function UtilItem({ linkName, url, color, children, onClick }) {
 }
 
 const StyledLink = styled.a`
+  cursor: pointer;
   color: ${(props) => props.color};
   background-color: #fff;
   border: none;
