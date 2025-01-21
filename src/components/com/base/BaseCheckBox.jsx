@@ -3,8 +3,11 @@ import styled from "styled-components";
 
 const StyledLi = styled.div`
   list-style: none;
+  margin-bottom: 5px;
 `;
-const StyledA = styled.a``;
+const StyledA = styled.a`
+  text-decoration: none;
+`;
 const StyledDiv = styled.div`
   display: flex;
   align-items: center;
@@ -46,6 +49,7 @@ function BaseCheckBox({ name, count, onClick, active }) {
             viewBox="0 0 24 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            style={{marginRight:"5px"}}
           >
             <path
               d={

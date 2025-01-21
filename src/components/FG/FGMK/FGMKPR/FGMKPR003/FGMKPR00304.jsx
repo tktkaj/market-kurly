@@ -63,6 +63,7 @@ const StyledList = styled.ul`
   gap: 14px;
   list-style-type: none;
   padding: 0;
+  margin: 0;
 `;
 
 const StyledItem = styled.li`

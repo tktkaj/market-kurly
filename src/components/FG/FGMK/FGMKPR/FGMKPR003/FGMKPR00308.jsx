@@ -21,7 +21,7 @@ function FGMKPR00308({ totalCount, setSimpleFilter, products, setPage }) {
 }
 
 const ProductListLayout = styled.div`
-  width: 100%;
+  width: 1000px;
 `;
 
 const ProductListBox = styled.div`
@@ -33,6 +33,7 @@ const ProductListBox = styled.div`
 const ProductPagenationBox = styled.div`
   display: flex;
   justify-content: center;
+  margin-top: 50px;
 `;
 
 export default FGMKPR00308;

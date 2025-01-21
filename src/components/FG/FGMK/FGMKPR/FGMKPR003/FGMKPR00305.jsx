@@ -77,6 +77,7 @@ const StyledItem = styled.li`
 
 const StyledLink = styled.a`
   color: ${(props) => (props.$isSelected ? "#5f0080" : "inherit")};
+  font-weight: ${(props) => (props.$isSelected ? "bold" : "")};
   &:hover {
     color: #5f0080;
   }

@@ -14,7 +14,8 @@ function UtilItem({ linkName, url, color, children, onClick }) {
       }}
     >
       {linkName}
-      {children && children}
+
+      <div style={{display:"flex",alignItems:"center"}}>{children && children}</div>
     </StyledLink>
   );
 }
@@ -24,5 +25,8 @@ const StyledLink = styled.a`
   background-color: #fff;
   border: none;
   font-size: 0.8rem;
+  text-decoration: none;
+  display: flex;
+  gap: 3px;
 `;
 export default UtilItem;

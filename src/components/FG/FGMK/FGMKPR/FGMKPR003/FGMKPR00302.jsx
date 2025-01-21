@@ -56,31 +56,50 @@ function FGMKPR00302({ category }) {
               value={item.name}
             />
           ))}
+        {category.type !== "price" && (
+          <MoreBtn>
+            <span style={{color:"#999"}}>카테고리 더보기</span>
+            <div style={{ display: "flex", alignItems: "center" }}>
+              {rightArrowIcon}
+            </div>
+          </MoreBtn>
+        )}
       </StyledDiv>
-      <MoreBtn>카테고리 더보기{rightArrowIcon}</MoreBtn>
     </DetailFiterItemLayout>
   );
 }
 
-const DetailFiterItemLayout = styled.div``;
+const DetailFiterItemLayout = styled.div`
+  border-top: 1px solid #eee;
+  width: 250px;
+  padding-bottom: 20px;
+`;
 
 const DetailFiterItemButton = styled.button`
+  width: 80%;
   border: none;
   background-color: #fff;
   display: flex;
+  padding: 20px 0;
+  justify-content: space-between;
+  cursor: pointer;
 `;
 
-const TitleDiv = styled.div``;
+const TitleDiv = styled.div`
+  font-size: 0.9rem;
+`;
 
 const IconDiv = styled.div``;
 
 const StyledDiv = styled.div``;
 
 const MoreBtn = styled.button`
+  width: 80%;
   border: none;
   background-color: #fff;
   display: flex;
-  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
 `;
 
 export default FGMKPR00302;

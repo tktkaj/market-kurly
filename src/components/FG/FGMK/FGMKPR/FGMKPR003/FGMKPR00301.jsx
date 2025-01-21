@@ -5,6 +5,42 @@ import FGMKPR00302 from "./FGMKPR00302";
 function FGMKPR00301({ categories }) {
   return (
     <DetailFiterLayout>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          paddingBottom: "20px",
+          cursor: "pointer",
+        }}
+      >
+        <StyledSpan>필터</StyledSpan>
+        <StyledButton>
+          <svg
+            width="12"
+            height="12"
+            viewBox="0 0 16 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            style={{ marginRight: "3px" }}
+          >
+            <path
+              d="M13.78 3.96303C12.504 2.16973 10.4086 1 8.04 1C4.15192 1 1 4.15192 1 8.04C1 11.9281 4.15192 15.08 8.04 15.08C11.9281 15.08 15.08 11.9281 15.08 8.04"
+              stroke="#ddd"
+              stroke-width="1.6"
+              stroke-linecap="square"
+              stroke-linejoin="round"
+            ></path>
+            <path
+              d="M14.4933 1L14.4933 4.52H10.9733"
+              stroke="#ddd"
+              stroke-width="1.6"
+              stroke-linecap="square"
+              stroke-linejoin="round"
+            ></path>
+          </svg>
+          초기화
+        </StyledButton>
+      </div>
       {categories.map((category, index) => (
         <FGMKPR00302 key={category.title + index} category={category} />
       ))}
@@ -16,14 +52,22 @@ const DetailFiterLayout = styled.div`
   width: 260px;
   margin-right: 47px;
   /* 높이 조절 필요 */
-  max-height: 700px;
-  overflow-y: scroll;
   position: sticky;
-  top: 0px;
+  top: 80px;
+  overflow-y: scroll;
+  max-height: 880px;
   &::-webkit-scrollbar {
     width: 0;
     background: transparent;
   }
 `;
-
+const StyledSpan = styled.span``;
+const StyledButton = styled.button`
+  cursor: pointer;
+  background-color: #fff;
+  border: none;
+  display: flex;
+  align-items: center;
+  color: #ddd;
+`;
 export default FGMKPR00301;
