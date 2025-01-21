@@ -1,0 +1,264 @@
+{
+    "mainBanners": [
+        {
+            "src": "https://product-image.kurly.com/hdims/resize/%3E1900x%3E370/quality/85/src/banner/main/pc/img/4ff3dd3e-b038-4129-8318-de231e9047f9.png",
+            "url": ""
+        },
+        {
+            "src": "https://product-image.kurly.com/hdims/resize/%3E1900x%3E370/quality/85/src/banner/main/pc/img/4bcb331a-3ead-42dd-8125-a966c7994f9a.jpg",
+            "url": ""
+        },
+        {
+            "src": "https://product-image.kurly.com/hdims/resize/%3E1900x%3E370/quality/85/src/banner/main/pc/img/8a795c94-b8e3-4f3a-9b94-1657f3ab9fef.jpg",
+            "url": ""
+        },
+        {
+            "src": "https://product-image.kurly.com/hdims/resize/%3E1900x%3E370/quality/85/src/banner/main/pc/img/7778d6f0-6214-44c2-a614-3f782dbff2b8.jpg",
+            "url": ""
+        },
+        {
+            "src": "https://product-image.kurly.com/hdims/resize/%3E1900x%3E370/quality/85/src/banner/main/pc/img/86fa8a60-22c3-47f6-b442-9cde70c2d522.jpg",
+            "url": ""
+        },
+        {
+            "src": "https://product-image.kurly.com/hdims/resize/%3E1900x%3E370/quality/85/src/banner/main/pc/img/ed7aa617-4f97-489f-b6e3-b0c9b2fb01de.png",
+            "url": ""
+        },
+        {
+            "src": "https://product-image.kurly.com/hdims/resize/%3E1900x%3E370/quality/85/src/banner/main/pc/img/22ffa680-f5fa-4164-ac5e-0fba5efea33f.png",
+            "url": ""
+        },
+        {
+            "src": "https://product-image.kurly.com/hdims/resize/%3E1900x%3E370/quality/85/src/banner/main/pc/img/a07b349c-5262-403f-bf8b-bc19e38016c0.jpg",
+            "url": ""
+        }
+    ],
+    "productCarousel": {
+        "sulBest": {
+            "title": "✨주목! 설 선물 베스트",
+            "subTitle": "이른 설 배송 마감 전 주문하세요!",
+            "list": [
+                {
+                    "sale": "17%쿠폰+증정",
+                    "img": "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/d0ecd722-3842-47d4-8c62-19fa5ec7f709.jpg",
+                    "title": "[설화수] 탄력 3종 세트 (탄력크림, 자음수, 자음유액) (+지함보)",
+                    "oriPrice": "190,000원",
+                    "disPercent": "10%",
+                    "disPrice": "171,000원",
+                    "url": ""
+                },
+                {
+                    "sale": "컬리카드쿠폰",
+                    "img": "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/9861866d-bc78-4a52-8ee6-260d27039a84.jpg",
+                    "title": "[선물세트] 옥돔&갈치&민어굴비 세트",
+                    "oriPrice": "199,000원",
+                    "disPercent": "30%",
+                    "disPrice": "139,000원",
+                    "url": ""
+                },
+                {
+                    "sale": "라이브특가",
+                    "img": "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/92d845e5-3c23-4210-be7b-fc86e3ec228d.jpg",
+                    "title": "[정관장] 홍삼정 에브리타임 소프트 (30일분) x 2박스 (+보자기포장 & 쇼핑백증정)",
+                    "oriPrice": "154,000원",
+                    "disPercent": "20%",
+                    "disPrice": "123,000원",
+                    "url": ""
+                },
+                {
+                    "sale": "컬리카드쿠폰",
+                    "img": "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/40dbc677-0447-4c50-891d-f17c59ba5671.jpg",
+                    "title": "[선물세트] 횡성축협한우 1++ 한우 프리미엄 구이 세트 (냉장)",
+                    "oriPrice": "399,000원",
+                    "disPercent": "20%",
+                    "disPrice": "318,100원",
+                    "url": ""
+                },
+                {
+                    "sale": "컬리카드쿠폰",
+                    "img": "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/7d39dbff-ff76-4a45-a505-5071e66092df.jpg",
+                    "title": "[선물세트] 제주 옥돔 (대) 세트 2kg",
+                    "oriPrice": "249,000원",
+                    "disPercent": "20%",
+                    "disPrice": "199,000원",
+                    "url": ""
+                },
+                {
+                    "sale": "컬리카드쿠폰",
+                    "img": "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/a24d1b72-3c74-43c6-a020-688140d3ae8d.jpg",
+                    "title": "[선물세트] 유명산지 사과세트 3.8kg (14~15입)",
+                    "oriPrice": "79,900원",
+                    "disPercent": "37%",
+                    "disPrice": "49,900원",
+                    "url": ""
+                },
+                {
+                    "sale": "15%쿠폰",
+                    "img": "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/7ad03ce4-525c-482f-b798-e3970599881f.jpg",
+                    "title": "[선물세트] 언양식 한우불고기 세트 1.2 kg",
+                    "oriPrice": "94,000원",
+                    "disPercent": "32%",
+                    "disPrice": "63,900원",
+                    "url": ""
+                },
+                {
+                    "sale": "컬리카드쿠폰",
+                    "img": "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/e33a4f12-1bbc-4e2d-879a-b932c541c4e8.jpg",
+                    "title": "[선물세트] 창억 프리미엄 선물세트",
+                    "oriPrice": "36,000원",
+                    "disPercent": "5%",
+                    "disPrice": "34,200원",
+                    "url": ""
+                },
+                {
+                    "sale": "컬리카드쿠폰",
+                    "img": "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/3d034ba8-9980-49a1-a5b9-37fddeb0efc2.jpeg",
+                    "title": "[선물세트] 리오마레 올리브오일 참치 세트 (80g x 18캔)",
+                    "oriPrice": "74,900원",
+                    "disPercent": "15%",
+                    "disPrice": "63,660원",
+                    "url": ""
+                },
+                {
+                    "sale": "컬리카드쿠폰",
+                    "img": "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/475b016f-7d10-43d6-a590-6f6ac2f8d794.jpg",
+                    "title": "[선물세트] 프리미엄 영광 굴비 세트 2.0kg",
+                    "oriPrice": "160,000원",
+                    "disPercent": "13%",
+                    "disPrice": "139,000원",
+                    "url": ""
+                },
+                {
+                    "sale": "18%쿠폰+증정",
+                    "img": "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/7ddd538c-6e78-4a24-b3ed-39cae0a1ccb1.jpg",
+                    "title": "[에스티 로더] 갈색병 세럼 50ml+51ml 기획세트 (15ml * 3ea + 1.5ml 패킷 4ea 증정)",
+                    "oriPrice": "200,000원",
+                    "disPercent": "15%",
+                    "disPrice": "170,000원",
+                    "url": ""
+                },
+                {
+                    "sale": "컬리카드쿠폰",
+                    "img": "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/b0ff87ff-bafb-4135-a1ad-4acfa2747f51.jpg",
+                    "title": "[선물세트] 갤러리아 고메이494 재래구이 김 난호",
+                    "oriPrice": "62,000원",
+                    "disPercent": "15%",
+                    "disPrice": "52,500원",
+                    "url": ""
+                },
+                {
+                    "sale": "덴프스",
+                    "img": "https://product-image.kurly.com/sticker/image/477280ef-9f62-4043-a471-2031d982725d.png",
+                    "title": "[덴프스] 덴마크 유산균이야기 선물세트 (180일분) +(쇼핑백 증정)",
+                    "oriPrice": "276,000원",
+                    "disPercent": "66%",
+                    "disPrice": "93,500원",
+                    "url": ""
+                },
+                {
+                    "sale": "컬리카드쿠폰",
+                    "img": "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/2a25af9b-fa74-441d-bb5f-61ca9e655faf.jpg",
+                    "title": "16brix 고당도 상주 샤인머스캣 2kg(3입)",
+                    "oriPrice": "59,900원",
+                    "disPercent": "16%",
+                    "disPrice": "49,900원",
+                    "url": ""
+                },
+                {
+                    "sale": "컬리카드쿠폰",
+                    "img": "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/c9bb00e8-2e5b-402a-a658-49973d15286e.jpg",
+                    "title": "[선물세트] 언양식 한우불고기 세트 1.2 kg (예약일 수령)",
+                    "oriPrice": "94,000원",
+                    "disPercent": "32%",
+                    "disPrice": "63,900원",
+                    "url": ""
+                },
+                {
+                    "sale": "10%쿠폰",
+                    "img": "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/682f9dac-27d3-4e4e-91c6-eb89a03ef3a5.jpg",
+                    "title": "[선물세트] 바샤커피 커피 드립백 세트 3종 (25개입) (택1)",
+                    "oriPrice": "78,000원",
+                    "disPercent": "",
+                    "disPrice": "",
+                    "url": ""
+                },
+                {
+                    "sale": "15%쿠폰+증정",
+                    "img": "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/87470e73-e698-4887-8b74-fb8018d7be07.jpg",
+                    "title": "[키엘] 울트라 훼이셜 크림 125ml 리미티드 에디션(설 선물세트)",
+                    "oriPrice": "95,000원",
+                    "disPercent": "15%",
+                    "disPrice": "80,750원",
+                    "url": ""
+                },
+                {
+                    "sale": "컬리카드쿠폰",
+                    "img": "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/a0180a01-a21f-4942-819b-ef06a815e78a.jpg",
+                    "title": "[선물세트] 민어굴비 & 옥돔 세트",
+                    "oriPrice": "129,000원",
+                    "disPercent": "36%",
+                    "disPrice": "82,000원",
+                    "url": ""
+                },
+                {
+                    "sale": "컬리카드쿠폰",
+                    "img": "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/858b408b-75df-4f85-bc8a-880bcaf6ec2e.jpg",
+                    "title": "[선물세트] 일상味소 프리미엄 구이 세트 (냉장)",
+                    "oriPrice": "119,000원",
+                    "disPercent": "24%",
+                    "disPrice": "89,900원",
+                    "url": ""
+                },
+                {
+                    "sale": "",
+                    "img": "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/a97c7a8c-3186-430d-bdb1-7eca4891658d.jpg",
+                    "title": "[김정환홍삼] 홍삼으로 에너지타임 플러스 (100일분) x 2박스 (+보자기포장)",
+                    "oriPrice": "498,000원",
+                    "disPercent": "76%",
+                    "disPrice": "119,000원",
+                    "url": ""
+                }
+            ]
+        }
+    },
+    "recommandCarousel": {
+        "presentSale": {
+            "title": "💝선물특가",
+            "subTitle": "특가로 똑똑하게 설 준비!",
+            "primaryText": "망설이면 늦어요!",
+            "list": [
+                {
+                  "sale": "+컬리카드쿠폰",
+                  "img": "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/321861d5-3158-44d5-9917-4e838ff37bb6.jpg",
+                  "title": "[선물세트] 호주산 LA꽃갈비 2kg(냉동)",
+                  "oriPrice": "139,900원",
+                  "disPercent": "35%",
+                  "disPrice": "89,900원"
+                },
+                {
+                  "sale": "+컬리카드쿠폰",
+                  "img": "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/65fd2293-c176-478b-b038-4ccb3ca01cb9.jpg",
+                  "title": "[김소형방] 흑염소 진액스틱 100포 + 쇼핑백증정",
+                  "oriPrice": "175,000원",
+                  "disPercent": "78%",
+                  "disPrice": "37,900원"
+                },
+                {
+                  "sale": "15%쿠폰+증정",
+                  "img": "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/72038b79-c1b8-49f0-af6c-f53241d06e7f.jpg",
+                  "title": "[키엘] BEST 크림/에센스 선물세트 3종 (택1)",
+                  "oriPrice": "95,000원",
+                  "disPercent": "15%",
+                  "disPrice": "80,750원"
+                }
+              ]
+              
+        }
+    },
+    "subBanner": {
+        "kurlyBanner": {
+            "img": "https://product-image.kurly.com/hdims/resize/%3E1050x%3E140/quality/85/src/banner/random-band/pc/img/7770c137-bccd-4532-95e8-ea1a8ab7e837.jpg",
+            "url": ""
+        }
+    }
+}

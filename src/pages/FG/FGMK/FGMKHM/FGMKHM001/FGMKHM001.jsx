@@ -6,7 +6,7 @@ import FGMKHM00102 from "../../../../../components/FG/FGMK/FGMKHM/FGMKHM001/FGMK
 import FGMKHM00104 from "../../../../../components/FG/FGMK/FGMKHM/FGMKHM001/FGMKHM00104";
 import FGMKHM00103 from "../../../../../components/FG/FGMK/FGMKHM/FGMKHM001/FGMKHM00103";
 import useCore from "../../../../../hooks/useCore";
-import useAuth from "../../../../../hooks/useAuth";
+
 function MainPage() {
   const core = useCore();
   const user = useSelector((state) => state.userInfo?.id);
@@ -150,10 +150,12 @@ function MainPage() {
     ],
   };
 
+
   useEffect(() => {
     if (!user) {
       core.goPage("/FG/FGMK/FGMKLO/FGMKLO002");
     }
+
   }, [user, core]);
   return (
     <MainPageLayout>

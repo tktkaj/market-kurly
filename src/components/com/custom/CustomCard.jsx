@@ -14,7 +14,7 @@ function CustomCard({ product, onClick }) {
     >
       <StyledImgDiv>
         <CustomCoupon value={product.sale} disable={product.disable} />
-        <StyledImg src={product.img} />
+        <StyledImg src={product && product.img} />
       </StyledImgDiv>
       <StyledDetailDiv>
         <CustomCartButton

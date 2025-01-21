@@ -8,11 +8,34 @@ import RouteComponent from "./RouteComponent";
 import SampleError from "../pages/samples/SampleError";
 import Header from "../components/com/layout/header/Header";
 import LayoutStickyHeader from "../components/com/layout/LayoutStickyHeader";
+import ApiUtils from "../../src/utils/ApiUtils";
+import { useEffect, useState } from "react";
+
 function RootRoute() {
+  const [headerInfo, setHeaderInfo] = useState(null);
+  const fetchHeaderInfo = async () => {
+    try {
+      const res = await ApiUtils.sendGet("/headerInfo");
+      if (res.headerInfo) {
+        console.log("Public key fetched successfully");
+        console.log(res.headerInfo);
+        return res.headerInfo;
+      } else {
+        console.error("Failed to fetch headerInfo");
+        throw new Error("Failed to fetch headerInfo");
+      }
+    } catch (error) {
+      console.error("Error fetching headerInfo:", error);
+      throw error;
+    }
+  };
+  useEffect(() => {
+    setHeaderInfo(fetchHeaderInfo);
+  }, [Route]);
   return (
     <BrowserRouter>
-      <Header />
-      <LayoutStickyHeader />
+      <Header headerInfo={headerInfo}/>
+      <LayoutStickyHeader categoryMenu= {headerInfo.menu} />
       <Routes>
         {menuDataJson["container"]?.urlList?.map((item, index) => (
           <Route

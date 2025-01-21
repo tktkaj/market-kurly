@@ -1,6 +1,7 @@
 import { http, HttpResponse } from 'msw'
 import people from "./dummy.json";
-
+import header from "./headerInfo.json"
+import mainPage from "./mainPageInfo.json"
 export const handlers = [
     http.get("/people", async () => {
         await sleep(200);
@@ -18,6 +19,14 @@ export const handlers = [
 
         return HttpResponse.json(people);
     }),
+    http.get("/headerInfo", async ()=>{
+        await sleep(200);
+
+        return HttpResponse.json(header);
+    }),
+    http.get("/mainPageInfo", async () =>{
+        await sleep(200);
+    })
 ];
 
 async function sleep(timeout) {

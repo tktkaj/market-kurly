@@ -1,0 +1,37 @@
+{
+    "headerInfo": {
+        "utilItems": [
+            {
+                "name": "회원가입",
+                "url": "/signup"
+            },
+            {
+                "name": "로그인",
+                "url": "/FG/FGMK/FGMKLO/FGMKLO002"
+            },
+            {
+                "name": "고객센터",
+                "url": "/servicecenter"
+            }
+        ],
+        "category": "category",
+        "menu": [
+            {
+                "name": "신상품",
+                "url": "/FG/FGMK/FGMKPR/FGMKPR003"
+            },
+            {
+                "name": "베스트",
+                "url": "/FG/FGMK/FGMKPR/FGMKPR003"
+            },
+            {
+                "name": "알뜰쇼핑",
+                "url": "/FG/FGMK/FGMKPR/FGMKPR003"
+            },
+            {
+                "name": "특가/혜택",
+                "url": "/FG/FGMK/FGMKPR/FGMKPR003"
+            }
+        ]
+    }
+}
