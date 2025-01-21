@@ -3,15 +3,10 @@ import styled from "styled-components";
 import UtilItem from "../header/UtilItem";
 import useCore from "../../../../hooks/useCore";
 import { useSelector } from "react-redux";
-function UtilMenu() {
+function UtilMenu({utilItems}) {
   const [loginText, SetLoginText] = useState("로그인");
   const user = useSelector((state) => state.userInfo.id);
   const core = useCore();
-  const utils = [
-    { name: "회원가입", url: "/signup" },
-    { name: loginText, url: "/FG/FGMK/FGMKLO/FGMKLO002" },
-    { name: "고객센터", url: "/customer-service" },
-  ];
 
   const downArrowIcon = (
     <img
@@ -33,12 +28,13 @@ function UtilMenu() {
   
 
   useEffect(() => {
+    console.log(utilItems)
     if (user) SetLoginText("로그아웃");
   }, [user]);
 
   return (
     <UtilMenuLayout>
-      {utils.map((util, index) => (
+      {utilItems && utilItems.map((util, index) => (
         <UtilItem
           key={util.name}
           linkName={util.name}

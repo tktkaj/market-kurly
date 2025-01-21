@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import UtilMenu from "../header/UtilMenu";
 import BrandNavigator from "./BrandNavigator";
@@ -7,7 +7,7 @@ import MyMenu from "./MyMenu";
 import CategoryToggle from "./CategoryToggle";
 import CategoryNav from "./CategoryNav";
 import DeleveryNotice from "./DeleveryNotice";
-function Header() {
+function Header({ headerInfo }) {
   const handleButtonClick = (value) => {
     console.log(value);
   };
@@ -16,7 +16,7 @@ function Header() {
     <HeaderLayout>
       <HeaderBox>
         <UtilMenuBox>
-          <UtilMenu />
+          {headerInfo && <UtilMenu utilItems={headerInfo.utilItems} />}
         </UtilMenuBox>
         <HeaderMiddleBox>
           <BrandNavigator />
@@ -28,7 +28,7 @@ function Header() {
         </HeaderMiddleBox>
         <CategoryBox>
           <CategoryToggle />
-          <CategoryNav />
+          {headerInfo && <CategoryNav menu={headerInfo.menu} />}
           <DeleveryNotice />
         </CategoryBox>
       </HeaderBox>

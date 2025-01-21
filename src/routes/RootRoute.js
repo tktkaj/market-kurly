@@ -19,7 +19,7 @@ function RootRoute() {
       if (res.headerInfo) {
         console.log("Public key fetched successfully");
         console.log(res.headerInfo);
-        return res.headerInfo;
+        setHeaderInfo(res.headerInfo);
       } else {
         console.error("Failed to fetch headerInfo");
         throw new Error("Failed to fetch headerInfo");
@@ -30,12 +30,12 @@ function RootRoute() {
     }
   };
   useEffect(() => {
-    setHeaderInfo(fetchHeaderInfo);
-  }, [Route]);
+    fetchHeaderInfo();
+  }, []);
   return (
     <BrowserRouter>
       <Header headerInfo={headerInfo}/>
-      <LayoutStickyHeader categoryMenu= {headerInfo.menu} />
+      <LayoutStickyHeader menu={headerInfo}/>
       <Routes>
         {menuDataJson["container"]?.urlList?.map((item, index) => (
           <Route

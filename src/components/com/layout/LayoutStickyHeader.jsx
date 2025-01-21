@@ -4,7 +4,7 @@ import CustomSearchBar from "../custom/CustomSearchBar";
 import CategoryToggle from "./header/CategoryToggle";
 import CategoryNav from "./header/CategoryNav";
 import MyMenu from "./header/MyMenu";
-function StickyHeader() {
+function LayoutStickyHeader({ headerInfo }) {
   const [isSticky, setIsSticky] = useState(false);
 
   useEffect(() => {
@@ -28,7 +28,7 @@ function StickyHeader() {
     <StickyHeaderLayout>
       <StyickHeaderBox>
         <CategoryToggle />
-        <CategoryNav />
+        {headerInfo && <CategoryNav menu={headerInfo.menu} />}
         <CustomSearchBar />
         <MyMenu />
       </StyickHeaderBox>
@@ -52,4 +52,4 @@ const StyickHeaderBox = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
-export default StickyHeader;
+export default LayoutStickyHeader;
