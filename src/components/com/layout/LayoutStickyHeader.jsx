@@ -40,14 +40,14 @@ const StickyHeaderLayout = styled.div`
   width: 100%;
   position: fixed;
   top: 0px;
-  z-index: 1035;
+  z-index: 1050;
   background-color: #fff;
   padding: 10px 0;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 `;
 const StyickHeaderBox = styled.div`
   margin: 0 auto;
-  width: 1040px;
+  width: 1050px;
   display: flex;
   justify-content: space-between;
   align-items: center;
