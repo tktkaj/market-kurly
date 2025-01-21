@@ -5,6 +5,7 @@ import LayerUtils from "../../../../../utils/LayerUtils";
 import useAuth from "../../../../../hooks/useAuth";
 import { useSelector } from "react-redux";
 import useCore from "../../../../../hooks/useCore";
+import ApiUtils from "../../../../../utils/ApiUtils";
 function LoginPage() {
   const [userId, setUserId] = useState("");
   const [userPw, setUserPw] = useState("");
@@ -39,14 +40,20 @@ function LoginPage() {
   const handleSetUserPw = (inputText) => {
     setUserPw(inputText);
   };
-
+// 로그인시 사용될 함수
+// post의 매개변수로 id, pw를 넘길 방법을 찾을 것.
+// 현재는 handler.js에서 "john", "1234"로 하드코딩된 상태
+  const LoginCheck = async () => {
+    const user = await ApiUtils.sendPost("/login");
+    if (user) {
+      login(user.id);
+      core.goPage("/FG/FGMK/FGMKHM/FGMKHM001");
+    }
+  };
   const handleUserLogin = () => {
     if (validateLogin()) {
-      console.log("user는" + userId);
-
       if (userId === "FINGER" && userPw === "FINGER02") {
-        login(userId);
-        core.goPage("/FG/FGMK/FGMKHM/FGMKHM001");
+        LoginCheck();
       } else {
         onWrongAlert();
       }
