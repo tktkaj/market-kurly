@@ -26,6 +26,13 @@ function SampleApi() {
         }
       };
 
+      const onFetchMsw = async () => {
+        const res = await ApiUtils.sendGet("/people");
+
+        console.log(res);
+        
+      }
+
     return (
         <>
             <SamplePageTitle title={"Sample Api 페이지 입니다."} />
@@ -33,6 +40,8 @@ function SampleApi() {
             <p>반드시 Nodejs 및 Spring 서버가 동작 중이여야 합니다.</p>
             <br/><br/>
             <button onClick={fetchPublicKey} >Api 실행</button>
+            <br/><br/>
+            <button onClick={onFetchMsw} >MSW Api 실행</button>
             <br/><br/>
             <SampleLink title="뒤로가기" to="/samples/SampleMain" onClick={()=>{
                 core.goBack()

@@ -10,7 +10,7 @@ const ApiUtils = {
     sendGet : (url, params, options) => {
         return new Promise((resolve, reject) => {
             getStore().dispatch(showLoading());
-            url = PropertyUtils.getProps('apiDomain') + url;
+            // url = PropertyUtils.getProps('apiDomain') + url;
 
             const config = {
                 ...ApiUtils.createRequestConfig(),
@@ -61,7 +61,7 @@ const ApiUtils = {
     sendPost : (url, params, options) => {
         return new Promise((resolve, reject) => {
             getStore().dispatch(showLoading());
-            url = PropertyUtils.getProps('apiDomain') + url;
+            // url = PropertyUtils.getProps('apiDomain') + url;
 
             const config = {
                 ...ApiUtils.createRequestConfig(),

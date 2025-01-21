@@ -10,6 +10,11 @@ import nodeProperty from './config/nodeProperty';
 import springProperty from './config/springProperty';
 import defualtProperty from './config/defualtProperty';
 import NativeUtils from './utils/NativeUtils';
+import { worker } from "./mocks/browsers";
+
+if (process.env.NODE_ENV === "development") {
+    worker.start();
+}
 
 const nowOS = CheckClientUtils.checkOS()
     let property;
