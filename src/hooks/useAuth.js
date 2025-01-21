@@ -6,7 +6,6 @@ const useAuth = () => {
 
   const user = useSelector((state) => state.userInfo?.id);
   const login = (id, callback) => {
-    console.log("useAuth에서" + id);
     dispatch(setUserInfo(id));
     if (callback) callback();
   };

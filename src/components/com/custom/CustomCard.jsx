@@ -4,9 +4,14 @@ import CustomCartButton from "../custom/CustomCartButton";
 import CustomCoupon from "./CustomCoupon";
 import useCore from "../../../hooks/useCore";
 function CustomCard({ product, onClick }) {
-const core = useCore();
+  const core = useCore();
   return (
-    <StyledCardDiv onClick={()=>{core.goPage(product.url)}}>
+    <StyledCardDiv
+      onClick={() => {
+        console.log(product.url);
+        core.goPage(product.url);
+      }}
+    >
       <StyledImgDiv>
         <CustomCoupon value={product.sale} disable={product.disable} />
         <StyledImg src={product.img} />
