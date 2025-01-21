@@ -85,7 +85,7 @@ const StyledDetailDiv = styled.div`
 const StyledProductTitle = styled.h3`
   text-overflow: ellipsis;
   margin-top: 10px;
-  font-size: 1.1rem;
+  font-size: 0.8rem;
   color: #222;
 `;
 
@@ -113,6 +113,7 @@ const DiscountPriceSpan = styled.span`
 const ReviewDiv = styled.div`
   padding-top: 12px;
   display: flex;
+  align-items: center;
   gap: 5px;
 `;
 const StyledSvg = styled.svg`

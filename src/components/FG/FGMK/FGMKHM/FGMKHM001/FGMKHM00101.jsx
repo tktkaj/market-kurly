@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
@@ -6,7 +6,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-function FGMKHM00101() {
+function FGMKHM00101({ product }) {
   const [currentIndex, setCurrentIndex] = useState(1);
   const prevButtonRef = useRef(null);
   const nextButtonRef = useRef(null);
@@ -26,24 +26,10 @@ function FGMKHM00101() {
       alt=""
     />
   );
-  const banners = [
-    {
-      id: 1,
-      src: "https://product-image.kurly.com/hdims/resize/%3E1900x%3E370/quality/85/src/banner/main/pc/img/e1b08aaa-300c-413b-9ebf-27742320ae21.jpg",
-      alt: "Banner 1",
-    },
-    {
-      id: 2,
-      src: "https://product-image.kurly.com/hdims/resize/%3E1900x%3E370/quality/85/src/banner/main/pc/img/e8dc84ae-5b08-48d9-a5a6-c82ba81b5ca8.jpg",
-      alt: "Banner 2",
-    },
-    {
-      id: 3,
-      src: "https://product-image.kurly.com/hdims/resize/%3E1900x%3E370/quality/85/src/banner/main/pc/img/7946e37f-6db0-408c-89e0-668d3c1a086a.jpg",
-      alt: "Banner 3",
-    },
-  ];
 
+  useEffect(() => {
+    console.log("01에서" + product);
+  });
   return (
     <MainBannerLayout>
       <Swiper
@@ -64,11 +50,12 @@ function FGMKHM00101() {
         onSlideChange={(swiper) => setCurrentIndex(swiper.realIndex + 1)}
         // style={{ width: "1900px" }}
       >
-        {banners.map((banner) => (
-          <SwiperSlide key={banner.id}>
-            <BannerImage src={banner.src} alt={banner.alt} />
-          </SwiperSlide>
-        ))}
+        {product &&
+          product.map((banner, index) => (
+            <SwiperSlide key={banner + index}>
+              <BannerImage src={banner.src} alt={banner.alt} />
+            </SwiperSlide>
+          ))}
       </Swiper>
       <div
         style={{
@@ -86,7 +73,7 @@ function FGMKHM00101() {
         <NextButton ref={nextButtonRef}>{rightBtnIcon}</NextButton>
       </div>
       <BannerCounterBox>
-        {currentIndex} / {banners.length}
+        {currentIndex} / {product && product.length}
       </BannerCounterBox>
     </MainBannerLayout>
   );

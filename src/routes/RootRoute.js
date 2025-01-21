@@ -14,28 +14,16 @@ import { useEffect, useState } from "react";
 function RootRoute() {
   const [headerInfo, setHeaderInfo] = useState(null);
   const fetchHeaderInfo = async () => {
-    try {
-      const res = await ApiUtils.sendGet("/headerInfo");
-      if (res.headerInfo) {
-        console.log("Public key fetched successfully");
-        console.log(res.headerInfo);
-        setHeaderInfo(res.headerInfo);
-      } else {
-        console.error("Failed to fetch headerInfo");
-        throw new Error("Failed to fetch headerInfo");
-      }
-    } catch (error) {
-      console.error("Error fetching headerInfo:", error);
-      throw error;
-    }
+    const res = await ApiUtils.sendGet("/headerInfo");
+    setHeaderInfo(res.headerInfo);
   };
   useEffect(() => {
     fetchHeaderInfo();
-  }, []);
+  }, [Route]);
   return (
     <BrowserRouter>
-      <Header headerInfo={headerInfo}/>
-      <LayoutStickyHeader menu={headerInfo}/>
+      <Header headerInfo={headerInfo} />
+      <LayoutStickyHeader menu={headerInfo} />
       <Routes>
         {menuDataJson["container"]?.urlList?.map((item, index) => (
           <Route

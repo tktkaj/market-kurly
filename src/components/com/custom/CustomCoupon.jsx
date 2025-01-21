@@ -3,8 +3,9 @@ import styled from "styled-components";
 
 function Coupon({ value, disable }) {
   return (
+    
     <div>
-      {!disable && (
+      {value && (
         <StyledDiv>
           <StyledP>{value || "value"}</StyledP>
         </StyledDiv>
