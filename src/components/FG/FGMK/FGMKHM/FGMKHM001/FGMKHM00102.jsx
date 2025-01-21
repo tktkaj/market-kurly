@@ -48,7 +48,7 @@ function FGMKHM00102({ product }) {
           swiper.navigation.init();
           swiper.navigation.update();
         }}
-        // style={{ width: "1040px" }}
+        style={{ width: "1040px" }}
       >
         {chunk(product.list, 4).map((group, index) => (
           <SwiperSlide key={index}>
