@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import FGMKDT00402 from "./FGMKDT00402";
 import BaseSelect from "../../../../com/base/BaseSelect";
 import BaseButton from "../../../../com/base/BaseButton";
-function FGMKDT00403({ setTotalPrice }) {
+function FGMKDT00403() {
+  const [totalPrice, setTotalPrice] = useState(0);
+  const [selPrice, setSelPrice] = useState(0);
+  const formatPrice = (price) => {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
   const product = {
     dileveryType: "샛별배송",
     title: "[일본디저트여행] 인기 디저트 모아보기(택1)",
@@ -73,6 +78,9 @@ function FGMKDT00403({ setTotalPrice }) {
   const bellIconSrc =
     "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIHN0cm9rZT0iI0NDQyIgc3Ryb2tlLXdpZHRoPSIxLjYiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTEyLjY2NiAyM2EzLjMzMyAzLjMzMyAwIDEgMCA2LjY2NiAwIi8+CiAgICAgICAgPHBhdGggZD0iTTI1Ljk5OCAyMi43MzhINmwuMDEzLS4wM2MuMDc2LS4xMzUuNDcxLS43MDQgMS4xODYtMS43MDlsLjc1LTEuMDV2LTYuNjM1YzAtNC40ODUgMy40MzgtOC4xNCA3Ljc0MS04LjMwOEwxNiA1YzQuNDQ2IDAgOC4wNSAzLjcyMiA4LjA1IDguMzE0djYuNjM0bDEuNzA3IDIuNDExYy4xNzMuMjUzLjI1NC4zOC4yNDIuMzh6IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KICAgIDwvZz4KPC9zdmc+Cg==";
 
+  useEffect(() => {
+    setTotalPrice(totalPrice + selPrice);
+  }, [selPrice]);
   return (
     <ShoppingOptionsLayout>
       <ProductTitle>
@@ -142,15 +150,34 @@ function FGMKDT00403({ setTotalPrice }) {
         <DetailItem>
           <StyledDt>상품선택</StyledDt>
           <StyledDd>
-            <BaseSelect products={product.list} />
+            <BaseSelect
+              products={product.list}
+              onClick={(price) => setSelPrice(price)}
+            />
           </StyledDd>
         </DetailItem>
       </DetailList>
       <TotalPriceDiv>
         <span style={{ fontSize: "0.7rem" }}>
           총 상품금액:
-          <span style={{ fontSize: "1.8rem", fontWeight: "bold",marginLeft:"10px"  }}>10,965</span>
-          <span style={{ fontSize: "1.3rem", fontWeight: "bold",marginLeft:"5px" }}>원</span>
+          <span
+            style={{
+              fontSize: "1.8rem",
+              fontWeight: "bold",
+              marginLeft: "10px",
+            }}
+          >
+            {formatPrice(totalPrice)}
+          </span>
+          <span
+            style={{
+              fontSize: "1.3rem",
+              fontWeight: "bold",
+              marginLeft: "5px",
+            }}
+          >
+            원
+          </span>
         </span>
       </TotalPriceDiv>
       <UtilButtonDiv>

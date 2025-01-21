@@ -32,9 +32,9 @@ function UtilMenu() {
   };
   
 
-  useEffect(() => {
-    if (user) SetLoginText("로그아웃");
-  }, []);
+  // useEffect(() => {
+  //   if (user) SetLoginText("로그아웃");
+  // }, []);
 
   return (
     <UtilMenuLayout>
