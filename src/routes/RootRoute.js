@@ -8,18 +8,8 @@ import RouteComponent from "./RouteComponent";
 import SampleError from "../pages/samples/SampleError";
 import Header from "../components/com/layout/header/Header";
 import LayoutStickyHeader from "../components/com/layout/LayoutStickyHeader";
-import ApiUtils from "../../src/utils/ApiUtils";
-import { useEffect, useState } from "react";
 
-function RootRoute() {
-  const [headerInfo, setHeaderInfo] = useState(null);
-  const fetchHeaderInfo = async () => {
-    const res = await ApiUtils.sendGet("/headerInfo");
-    setHeaderInfo(res.headerInfo);
-  };
-  useEffect(() => {
-    fetchHeaderInfo();
-  }, [Route]);
+function RootRoute({ headerInfo }) {
   return (
     <BrowserRouter>
       <Header headerInfo={headerInfo} />

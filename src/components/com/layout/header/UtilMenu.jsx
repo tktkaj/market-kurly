@@ -3,10 +3,12 @@ import styled from "styled-components";
 import UtilItem from "../header/UtilItem";
 import useCore from "../../../../hooks/useCore";
 import { useSelector } from "react-redux";
-function UtilMenu({utilItems}) {
-  const [loginText, SetLoginText] = useState("로그인");
+import useAuth from "../../../../hooks/useAuth";
+function UtilMenu({ utilItems }) {
+  const [menuItems, setMenuItems] = useState(utilItems);
   const user = useSelector((state) => state.userInfo.id);
   const core = useCore();
+  const auth = useAuth();
 
   const downArrowIcon = (
     <img
@@ -16,35 +18,52 @@ function UtilMenu({utilItems}) {
     />
   );
 
-
   const handleClick = (url) => (e) => {
     if (url === "*") {
       e.preventDefault();
-
     } else {
       core.goPage(url);
     }
   };
-  
-
+  const handleLogout = () => {
+    if (user) auth.logout();
+  };
   useEffect(() => {
-    console.log(utilItems)
-    if (user) SetLoginText("로그아웃");
-  }, [user]);
+    if (user) {
+      const updatedMenuItems = utilItems
+        .map((util) => {
+          if (util.name === "로그인") {
+            return { ...util, name: "로그아웃" };
+          }
+          if (util.name === "회원가입") {
+            return null;
+          }
+          return util;
+        })
+        .filter(Boolean);
+
+      setMenuItems(updatedMenuItems);
+    } else {
+      setMenuItems(utilItems);
+    }
+  }, [user, utilItems]);
 
   return (
     <UtilMenuLayout>
-      {utilItems && utilItems.map((util, index) => (
-        <UtilItem
-          key={util.name}
-          linkName={util.name}
-          url={util.url}
-          color={index === 0 ? "#5f0080" : null}
-          onClick={handleClick(util.url)}
-        >
-          {index === 2 && downArrowIcon}
-        </UtilItem>
-      ))}
+      {menuItems &&
+        menuItems.map((util, index) => (
+          <UtilItem
+            key={util.name}
+            linkName={util.name}
+            url={util.url}
+            color={index === 0 ? "#5f0080" : null}
+            onClick={
+              util.name === "로그아웃" ? handleLogout : handleClick(util.url)
+            }
+          >
+            {index === 2 && downArrowIcon}
+          </UtilItem>
+        ))}
     </UtilMenuLayout>
   );
 }

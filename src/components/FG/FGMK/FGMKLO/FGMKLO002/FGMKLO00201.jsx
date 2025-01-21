@@ -4,6 +4,11 @@ import BaseInput from "../../../../com/base/BaseInput"
 import BaseButton from "../../../../com/base/BaseButton"
 
 function FGMKLO00201({ onClick, onChangeUserId, onChangeUserPw }) {
+  
+  const handleOnClick = () =>{
+    if(onClick)
+      onClick();
+  }
   return (
     <LoginFormLayout>
       <LoginFormBox>
@@ -34,7 +39,7 @@ function FGMKLO00201({ onClick, onChangeUserId, onChangeUserPw }) {
           variant="purple"
           btnText="로그인"
           size="ml"
-          onClick={onClick}
+          onClick={handleOnClick}
         >
           로그인
         </BaseButton>{" "}
@@ -72,6 +77,7 @@ const LoginUtilBox = styled.div`
 `;
 
 const StyledLink = styled.a`
+  text-decoration: none;
   cursor: pointer;
   color: #333;
 `;
