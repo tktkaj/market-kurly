@@ -24,7 +24,7 @@ function BaseInput({ size, type, placeholder, onChange, value, require }) {
         $selectInputSize={SelectInputSize}
         maxLength="20"
         type={type}
-        onChange={(e) => onChange(e.target.value)}
+        onChange={(e) => onChange && onChange(e.target.value)}
         value={value}
         required={require}
       />

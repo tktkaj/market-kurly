@@ -1,10 +1,11 @@
-import { http, HttpResponse } from "msw";
+import { http, HttpMethods, HttpResponse } from "msw";
 import people from "./dummy.json";
 import header from "./headerInfo.json";
 import mainPage from "./mainPageInfo.json";
 import userList from "./userInfo.json";
 import productMenu from "./productMenu.json";
 import product from "./products.json";
+import cart from "./cart.json";
 
 export const handlers = [
   http.get("/people", async () => {
@@ -67,6 +68,34 @@ export const handlers = [
 
     // 필터링된 제품 목록 반환
     return HttpResponse.json(productList);
+  }),
+  // 회원가입 로직
+  http.post("/signup", async ({ request }) => {
+    const req = await request.json();
+    userList.push({
+      id: req.id,
+      pw: req.pw,
+      name: req.name,
+      email: req.email,
+      role: req.role,
+    });
+    return HttpResponse.json(req);
+  }),
+  // 장바구니 조회
+  http.get("/cart", async ({ request }) => {
+    const req = request.json();
+    const myCart = cart.filter((item) =>item.userId &&  item.userId === req.id);
+    return HttpResponse.json(myCart);
+  }),
+  // 장바구니 담기
+  http.post("/cart", async ({ request }) => {
+    const req = await request.json();
+    const data = {
+      userId: req.userId,
+      product: req.product,
+    };
+    cart.push(data);
+    return HttpResponse.json(data);
   }),
 ];
 
