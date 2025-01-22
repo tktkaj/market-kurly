@@ -60,7 +60,6 @@ export const handlers = [
     const categoryFilter = req.filter || [];
 
     const productList = product.filter((item) => {
-      console.log("진입");
       const categoryMatch =
         categoryFilter.length === 0 || categoryFilter.includes(item.category);
       return categoryMatch;

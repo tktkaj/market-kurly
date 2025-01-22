@@ -9,7 +9,7 @@ import styled from "styled-components";
  * @param {string} type - 버튼의 타입 (예: 'button', 'submit').
  * @param {function} onClick - 버튼 클릭 시 호출될 함수.
  */
-function CustomCartButton({ size, btnText, type, onClick }) {
+function CustomCartButton({ size, btnText, type, onClick, product }) {
   const sizeObj = {
     sm: { width: "166px", fontSize: "1rem" },
     ml: { width: "249px", fontSize: "1.1rem" },
@@ -24,7 +24,9 @@ function CustomCartButton({ size, btnText, type, onClick }) {
       <StyledButton
         selectfontsize={selectfontsize}
         type={type}
-        onClick={onClick}
+        onClick={() => {
+          if (onClick) onClick(product);
+        }}
       >
         <svg
           width="22"

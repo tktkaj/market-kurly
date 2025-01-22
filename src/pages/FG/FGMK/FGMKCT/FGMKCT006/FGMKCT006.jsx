@@ -31,9 +31,9 @@ function FGMKCT006() {
       <StyledBox>장바구니 내역</StyledBox>
       {myCart &&
         myCart.map((item, index) => (
-          <div
+          <div 
             key={item + index}
-            style={{ cursor: "pointer" }}
+            style={{ cursor: "pointer", padding:"15px", backgroundColor:"#eee", marginTop:"10px"}}
             onClick={() => deleteCart(index)}
           >
             {item.product.title}

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import CustomCartButton from "../custom/CustomCartButton";
 import CustomCoupon from "./CustomCoupon";
 import useCore from "../../../hooks/useCore";
-function CustomCard({ product, onClick }) {
+function CustomCard({ product, onClick, fetchMyCart }) {
   const core = useCore();
   const formatPrice = (price) => {
     return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -23,7 +23,8 @@ function CustomCard({ product, onClick }) {
           type="button"
           size="ml"
           value="담기"
-          onClick={onClick}
+          onClick={fetchMyCart}
+          product={product}
         />
         <StyledProductTitle>{product.title}</StyledProductTitle>
         <StyledPriceSpan>
@@ -33,7 +34,7 @@ function CustomCard({ product, onClick }) {
           <StyledDiscoutDiv>
             <DiscoutPerSpan>{product.disPercent || ""}</DiscoutPerSpan>
             <DiscountPriceSpan>
-              {formatPrice(product.disPrice)+"원" || ""}
+              {formatPrice(product.disPrice) + "원" || ""}
             </DiscountPriceSpan>
           </StyledDiscoutDiv>
         </StyledPriceSpan>
