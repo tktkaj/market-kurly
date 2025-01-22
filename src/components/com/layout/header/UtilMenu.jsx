@@ -31,6 +31,10 @@ function UtilMenu({ utilItems }) {
       core.goPage("/FG/FGMK/FGMKHM/FGMKHM001");
     }
   };
+
+  const handleSignUp = () => {
+    core.goPage("/FG/FGMK/FGMKSU/FGMKSU005");
+  };
   useEffect(() => {
     if (user) {
       const updatedMenuItems = utilItems
@@ -61,7 +65,11 @@ function UtilMenu({ utilItems }) {
             url={util.url}
             color={index === 0 ? "#5f0080" : null}
             onClick={
-              util.name === "로그아웃" ? handleLogout : handleClick(util.url)
+              util.name === "로그아웃"
+                ? handleLogout
+                : util.name === "회원가입"
+                ? handleSignUp
+                : handleClick(util.url)
             }
           >
             {index === 2 && downArrowIcon}

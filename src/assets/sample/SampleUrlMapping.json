@@ -46,6 +46,16 @@
                 "url": "/FG/FGMK/FGMKDT/FGMKDT004",
                 "filePath": "/FG/FGMK/FGMKDT/FGMKDT004/FGMKDT004",
                 "menuId": "FGMKDT004"
+            },
+            {
+                "url": "/FG/FGMK/FGMKSU/FGMKSU005",
+                "filePath": "/FG/FGMK/FGMKSU/FGMKSU005/FGMKSU005",
+                "menuId": "FGMKSU005"
+            },
+            {
+                "url": "/FG/FGMK/FGMKCT/FGMKCT006",
+                "filePath": "/FG/FGMK/FGMKCT/FGMKCT006/FGMKCT006",
+                "menuId": "FGMKCT006"
             }
         ]
     }

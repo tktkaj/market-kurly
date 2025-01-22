@@ -9,7 +9,7 @@ import styled from "styled-components";
  * @param {string} placeholder - 입력 필드에 표시될 플레이스홀더 텍스트.
  * @param {function} onChange - 입력 값이 변경될 때 호출될 함수.
  */
-function BaseInput({ size, type, placeholder, onChange, value }) {
+function BaseInput({ size, type, placeholder, onChange, value, require }) {
   const inputSize = {
     lg: { width: "350px", height: "46px", fontSize: "1.1rem" },
     ml: { width: "340px", height: "48px", fontSize: "1.05rem" },
@@ -26,6 +26,7 @@ function BaseInput({ size, type, placeholder, onChange, value }) {
         type={type}
         onChange={(e) => onChange(e.target.value)}
         value={value}
+        required={require}
       />
     </InputOutline>
   );
