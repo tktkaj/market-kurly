@@ -7,12 +7,17 @@ function FGMKCT006() {
   const auth = useAuth();
   const user = auth.userInfo();
   const [myCart, setMyCart] = useState(null);
-
+// 장바구니 전체삭제
   const deleteAllCart = async () => {
     const res = await ApiUtils.sendPost("/delete-all-cart", { userId: user });
     if (res) setMyCart(res);
   };
-
+// 장바구니 선택삭제
+  const deleteCart = async (idx) => {
+    const res = await ApiUtils.sendPost("/delete-cart", { index: idx });
+    if (res) setMyCart(res);
+  };
+// 장바구니 조회
   useEffect(() => {
     const fetchMyCart = async () => {
       const res = await ApiUtils.sendGet("/cart", { userId: user });
@@ -24,11 +29,20 @@ function FGMKCT006() {
   return (
     <StyledLayout>
       <StyledBox>장바구니 내역</StyledBox>
-      {myCart && myCart.map((item, index) => <div>{item.product.title}</div>)}
+      {myCart &&
+        myCart.map((item, index) => (
+          <div
+            key={item + index}
+            style={{ cursor: "pointer" }}
+            onClick={() => deleteCart(index)}
+          >
+            {item.product.title}
+          </div>
+        ))}
       <div style={{ cursor: "pointer" }} onClick={null}>
         장바구니추가
       </div>
-      <div style={{ cursor: "pointer" }} onClick={null}>
+      <div style={{ cursor: "pointer" }} onClick={() => deleteCart()}>
         장바구니부분삭제
       </div>
       <div style={{ cursor: "pointer" }} onClick={() => deleteAllCart()}>

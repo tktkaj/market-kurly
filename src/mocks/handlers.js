@@ -101,14 +101,9 @@ export const handlers = [
   // 장바구니 부분 삭제
   http.post("/delete-cart", async ({ request }) => {
     const req = await request.json();
-    const indexArr = req.index;
-    const sortedIndexes = indexArr.sort((a, b) => b - a);
-
-    sortedIndexes.forEach((index) => {
-      cart.splice(index, 1);
-    });
-    const myCart = cart;
-    return HttpResponse.json(myCart);
+    const idx = req.index;
+    cart.splice(idx, 1);
+    return HttpResponse.json(cart);
   }),
   // 장바구니 전체 삭제
   http.post("/delete-all-cart", async () => {
