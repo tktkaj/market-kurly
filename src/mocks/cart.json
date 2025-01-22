@@ -1,3 +1,17 @@
 [
-    
+    {
+        "userId": "john",
+        "product": {
+            "category": "2025 설 선물",
+            "sale": "",
+            "price": "57,900원 이상",
+            "img": "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/c93107b8-b783-4694-8c9c-d65650464348.jpg",
+            "title": "[해운대암소갈비집] 1++ 한우 불고기 세트 (4개입)",
+            "oriPrice": 139000,
+            "disPercent": "10%",
+            "disPrice": 125100,
+            "url": "",
+            "review": "999+"
+        }
+    }
 ]

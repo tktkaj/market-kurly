@@ -1,9 +1,32 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
+import ApiUtils from "../../../../../utils/ApiUtils";
+import useAuth from "../../../../../hooks/useAuth";
 
 function FGMKCT006() {
-  return (
-    <div>FGMKCT006</div>
-  )
-}
+  const auth = useAuth();
+  const user = auth.userInfo();
+  const [myCart, setMyCart] = useState(null);
+  useEffect(() => {
+    console.log("useEffect 발동");
+    const fetchMyCart = async () => {
+      const res = await ApiUtils.sendGet("/cart", { userId: user });
+      if (res) setMyCart(res.myCart);
+    };
+    fetchMyCart();
+  }, []);
 
-export default FGMKCT006
+  return (
+    <StyledLayout>
+      <StyledBox>장바구니 내역</StyledBox>
+      {myCart &&
+        myCart.map((item, index) => <div key={item + index}>{item.title}</div>)}
+    </StyledLayout>
+  );
+}
+const StyledLayout = styled.div`
+  width: 1040px;
+  margin: 0 auto;
+`;
+const StyledBox = styled.div``;
+export default FGMKCT006;
