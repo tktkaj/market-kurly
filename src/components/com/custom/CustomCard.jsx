@@ -27,11 +27,13 @@ function CustomCard({ product, onClick }) {
         />
         <StyledProductTitle>{product.title}</StyledProductTitle>
         <StyledPriceSpan>
-          <OriginalPriceSpan>{formatPrice(product.oriPrice)}</OriginalPriceSpan>
+          <OriginalPriceSpan>
+            {formatPrice(product.oriPrice) || ""}
+          </OriginalPriceSpan>
           <StyledDiscoutDiv>
-            <DiscoutPerSpan>{product.disPercent}</DiscoutPerSpan>
+            <DiscoutPerSpan>{product.disPercent || ""}</DiscoutPerSpan>
             <DiscountPriceSpan>
-              {formatPrice(product.disPrice)}원
+              {formatPrice(product.disPrice)+"원" || ""}
             </DiscountPriceSpan>
           </StyledDiscoutDiv>
         </StyledPriceSpan>

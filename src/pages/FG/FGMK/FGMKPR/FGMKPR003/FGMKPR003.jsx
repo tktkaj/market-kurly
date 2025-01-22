@@ -5,6 +5,7 @@ import FGMKPR00305 from "../../../../../components/FG/FGMK/FGMKPR/FGMKPR003/FGMK
 import FGMKPR00308 from "../../../../../components/FG/FGMK/FGMKPR/FGMKPR003/FGMKPR00308";
 import { useSelector } from "react-redux";
 import useCore from "../../../../../hooks/useCore";
+import ApiUtils from "../../../../../utils/ApiUtils";
 function NewProduct() {
   // json에재사용
   const newFil = {
@@ -89,12 +90,12 @@ function NewProduct() {
   const user = useSelector((state) => state.userInfo?.id);
   const core = useCore();
   const [totalCount, setTotalcount] = useState(0);
-  const [newFilters, setNewFilters] = useState(newFil);
+  const [newFilters, setNewFilters] = useState(null);
   const [selNewFilters, setSelNewFilters] = useState("");
-  const [detailFilter, setDetailFilter] = useState(detail);
+  const [detailFilter, setDetailFilter] = useState(null);
   const [selDetailFilter, setSelDetailFilter] = useState([]);
   const [SelPriceFilter, setSelPriceFilter] = useState("");
-  const [simpleFilter, setSimpleFilter] = useState(simple);
+  const [simpleFilter, setSimpleFilter] = useState(null);
   const [selSimpleFilter, setSelSimpleFilter] = useState("");
   const [products, setProducts] = useState([]);
   const [page, setPage] = useState(0);
@@ -122,8 +123,29 @@ function NewProduct() {
     if (!user) {
       core.goPage("/FG/FGMK/FGMKLO/FGMKLO002");
     }
-  }, []);
+  }, [user]);
 
+  useEffect(() => {
+    const fetchProductMenuInfo = async () => {
+      const menu = await ApiUtils.sendGet("/productMenu");
+      if (menu) {
+        setNewFilters(menu.newFilter);
+        setDetailFilter(menu.detailFilter);
+        setSimpleFilter(menu.simpleFilter);
+      }
+    };
+    fetchProductMenuInfo();
+  }, [user]);
+
+  useEffect(() => {
+    const fetchProductInfo = async () => {
+      const productList = await ApiUtils.sendPost("/products");
+      if (productList) {
+        setProducts(productList);
+      }
+    };
+    fetchProductInfo();
+  }, [detailFilter]);
   return (
     <NewProductLayout>
       <FGMKPR00305

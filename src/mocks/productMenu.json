@@ -1,0 +1,193 @@
+{
+    "newFilter": {
+        "title": "신상품",
+        "list": [
+            {
+                "name": "인기신상랭킹",
+                "keyword": "rank"
+            },
+            {
+                "name": "입점특가",
+                "keyword": "sale"
+            },
+            {
+                "name": "요즘간식",
+                "keyword": "snack"
+            },
+            {
+                "name": "간편한끼",
+                "keyword": "once"
+            },
+            {
+                "name": "주방·리빙",
+                "keyword": "living"
+            },
+            {
+                "name": "뷰티",
+                "keyword": "beuty"
+            },
+            {
+                "name": "패션·잡화",
+                "keyword": "fashion"
+            }
+        ]
+    },
+    "detailFilter": [
+        {
+            "type": "product",
+            "title": "카테고리1",
+            "list": [
+                {
+                    "name": "2025 설선물",
+                    "count": null
+                },
+                {
+                    "name": "스킨케어·메이크업",
+                    "count": null
+                },
+                {
+                    "name": "1월 뷰컬페",
+                    "count": null
+                },
+                {
+                    "name": "주방용품",
+                    "count": null
+                },
+                {
+                    "name": "간식·과자·떡",
+                    "count": null
+                },
+                {
+                    "name": "건강식품",
+                    "count": null
+                },
+                {
+                    "name": "럭셔리뷰티",
+                    "count": null
+                },
+                {
+                    "name": "패션",
+                    "count": null
+                },
+                {
+                    "name": "헤어·바디·구강",
+                    "count": null
+                }
+            ]
+        },
+        {
+            "type": "product",
+            "title": "카테고리2",
+            "list": [
+                {
+                    "name": "2025 설선물",
+                    "count": null
+                },
+                {
+                    "name": "스킨케어·메이크업",
+                    "count": null
+                },
+                {
+                    "name": "1월 뷰컬페",
+                    "count": null
+                },
+                {
+                    "name": "주방용품",
+                    "count": null
+                },
+                {
+                    "name": "간식·과자·떡",
+                    "count": null
+                },
+                {
+                    "name": "건강식품",
+                    "count": null
+                },
+                {
+                    "name": "럭셔리뷰티",
+                    "count": null
+                },
+                {
+                    "name": "패션",
+                    "count": null
+                },
+                {
+                    "name": "헤어·바디·구강",
+                    "count": null
+                }
+            ]
+        },
+        {
+            "type": "price",
+            "title": "가격",
+            "list": [
+                {
+                    "name": "11,900 미만",
+                    "count": null
+                },
+                {
+                    "name": "11,900원 ~ 26,000원",
+                    "count": null
+                },
+                {
+                    "name": "26,000원 ~ 57,900원",
+                    "count": null
+                },
+                {
+                    "name": "57,900원 이상",
+                    "count": null
+                }
+            ]
+        },
+        {
+            "type": "product",
+            "title": "카테고리3",
+            "list": [
+                {
+                    "name": "2025 설선물",
+                    "count": null
+                },
+                {
+                    "name": "스킨케어·메이크업",
+                    "count": null
+                },
+                {
+                    "name": "1월 뷰컬페",
+                    "count": null
+                },
+                {
+                    "name": "주방용품",
+                    "count": null
+                },
+                {
+                    "name": "간식·과자·떡",
+                    "count": null
+                },
+                {
+                    "name": "건강식품",
+                    "count": null
+                },
+                {
+                    "name": "럭셔리뷰티",
+                    "count": null
+                },
+                {
+                    "name": "패션",
+                    "count": null
+                },
+                {
+                    "name": "헤어·바디·구강",
+                    "count": null
+                }
+            ]
+        }
+    ],
+    "simpleFilter": [
+        "추천순",
+        "신상품",
+        "판매량순",
+        "혜택순",
+        "낮은 가격순",
+        "높은 가격순"
+    ]
+}
