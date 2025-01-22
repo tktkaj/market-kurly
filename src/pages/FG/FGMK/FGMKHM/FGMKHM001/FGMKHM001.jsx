@@ -26,7 +26,7 @@ function MainPage() {
 
   useEffect(() => {
     fetchMainPageInfo();
-  }, []);
+  }, [user]);
   return (
     <MainPageLayout>
       <FGMKHM00101 product={mainPageInfo && mainPageInfo.mainBanners} />

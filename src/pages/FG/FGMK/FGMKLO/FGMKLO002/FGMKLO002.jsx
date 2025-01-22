@@ -40,23 +40,19 @@ function LoginPage() {
   const handleSetUserPw = (inputText) => {
     setUserPw(inputText);
   };
-// 로그인시 사용될 함수
-// post의 매개변수로 id, pw를 넘길 방법을 찾을 것.
-// 현재는 handler.js에서 "john", "1234"로 하드코딩된 상태
-  const LoginCheck = async () => {
-    const user = await ApiUtils.sendPost("/login");
+
+  const loginCheck = async () => {
+    const user = await ApiUtils.sendPost("/login", { id: userId, pw: userPw });
     if (user) {
       login(user.id);
       core.goPage("/FG/FGMK/FGMKHM/FGMKHM001");
+    } else {
+      onWrongAlert();
     }
   };
   const handleUserLogin = () => {
     if (validateLogin()) {
-      if (userId === "FINGER" && userPw === "FINGER02") {
-        LoginCheck();
-      } else {
-        onWrongAlert();
-      }
+      loginCheck();
     }
   };
   const IsLoginCheck = async () => {

@@ -7,86 +7,6 @@ import { useSelector } from "react-redux";
 import useCore from "../../../../../hooks/useCore";
 import ApiUtils from "../../../../../utils/ApiUtils";
 function NewProduct() {
-  // json에재사용
-  const newFil = {
-    title: "신상품",
-    list: [
-      { name: "인기신상랭킹", keyword: "rank" },
-      { name: "입점특가", keyword: "sale" },
-      { name: "요즘간식", keyword: "snack" },
-      { name: "간편한끼", keyword: "once" },
-      { name: "주방·리빙", keyword: "living" },
-      { name: "뷰티", keyword: "beuty" },
-      { name: "패션·잡화", keyword: "fashion" },
-    ],
-  };
-  // json사용할 카테고리
-  const detail = [
-    {
-      type: "product",
-      title: "카테고리1",
-      list: [
-        { name: "2025 설선물", count: 72 },
-        { name: "스킨케어·메이크업", count: 79 },
-        { name: "1월 뷰컬페", count: 45 },
-        { name: "주방용품", count: 40 },
-        { name: "간식·과자·떡", count: 40 },
-        { name: "건강식품", count: 34 },
-        { name: "럭셔리뷰티", count: 32 },
-        { name: "패션", count: 31 },
-        { name: "헤어·바디·구강", count: 30 },
-      ],
-    },
-    {
-      type: "product",
-      title: "카테고리2",
-      list: [
-        { name: "2025 설선물", count: 72 },
-        { name: "스킨케어·메이크업", count: 79 },
-        { name: "1월 뷰컬페", count: 45 },
-        { name: "주방용품", count: 40 },
-        { name: "간식·과자·떡", count: 40 },
-        { name: "건강식품", count: 34 },
-        { name: "럭셔리뷰티", count: 32 },
-        { name: "패션", count: 31 },
-        { name: "헤어·바디·구강", count: 30 },
-      ],
-    },
-    {
-      type: "price",
-      title: "가격",
-      list: [
-        { name: "11,900 미만", count: 72 },
-        { name: "11,900원 ~ 26,000원", count: 79 },
-        { name: "26,000원 ~ 57,900원", count: 45 },
-        { name: "57,900원 이상", count: 40 },
-      ],
-    },
-    {
-      type: "product",
-      title: "카테고리3",
-      list: [
-        { name: "2025 설선물", count: 72 },
-        { name: "스킨케어·메이크업", count: 79 },
-        { name: "1월 뷰컬페", count: 45 },
-        { name: "주방용품", count: 40 },
-        { name: "간식·과자·떡", count: 40 },
-        { name: "건강식품", count: 34 },
-        { name: "럭셔리뷰티", count: 32 },
-        { name: "패션", count: 31 },
-        { name: "헤어·바디·구강", count: 30 },
-      ],
-    },
-  ];
-  // json에 재사용
-  const simple = [
-    "추천순",
-    "신상품",
-    "판매량순",
-    "혜택순",
-    "낮은 가격순",
-    "높은 가격순",
-  ];
   const user = useSelector((state) => state.userInfo?.id);
   const core = useCore();
   const [totalCount, setTotalcount] = useState(0);
@@ -139,13 +59,17 @@ function NewProduct() {
 
   useEffect(() => {
     const fetchProductInfo = async () => {
-      const productList = await ApiUtils.sendPost("/products");
+      const productList = await ApiUtils.sendPost("/products", {
+        dFilter: detailFilter,
+      });
       if (productList) {
         setProducts(productList);
+        setTotalcount(productList.length);
       }
     };
     fetchProductInfo();
   }, [detailFilter]);
+
   return (
     <NewProductLayout>
       <FGMKPR00305
