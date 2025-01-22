@@ -43,9 +43,6 @@ function NewProduct() {
     if (!user) {
       core.goPage("/FG/FGMK/FGMKLO/FGMKLO002");
     }
-  }, [user]);
-
-  useEffect(() => {
     const fetchProductMenuInfo = async () => {
       const menu = await ApiUtils.sendGet("/productMenu");
       if (menu) {
@@ -55,12 +52,14 @@ function NewProduct() {
       }
     };
     fetchProductMenuInfo();
-  }, [user]);
+  }, []);
+
+  useEffect(() => {}, []);
 
   useEffect(() => {
     const fetchProductInfo = async () => {
       const productList = await ApiUtils.sendPost("/products", {
-        dFilter: detailFilter,
+        filter: selDetailFilter,
       });
       if (productList) {
         setProducts(productList);
@@ -68,7 +67,7 @@ function NewProduct() {
       }
     };
     fetchProductInfo();
-  }, [detailFilter]);
+  }, [selDetailFilter]);
 
   return (
     <NewProductLayout>

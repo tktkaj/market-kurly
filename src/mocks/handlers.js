@@ -53,10 +53,13 @@ export const handlers = [
   // FGMKPR003 상품리스트
   http.post("/products", async ({ request }) => {
     await sleep(200);
-    const { dFilter } = await request.json();
-    console.log(dFilter);
-    const categoryFilter = ["2025 설 선물"]
+    const req = await request.json();
+    console.log("나야 필터,");
+    console.log(typeof req.filter);
+    const categoryFilter = req.filter || [];
+
     const productList = product.filter((item) => {
+      console.log("진입");
       const categoryMatch =
         categoryFilter.length === 0 || categoryFilter.includes(item.category);
       return categoryMatch;
