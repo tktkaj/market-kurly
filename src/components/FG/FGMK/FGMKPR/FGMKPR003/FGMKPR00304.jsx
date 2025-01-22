@@ -1,23 +1,15 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
-function FGMKPR00304({ setSimpleFilter, sampleFilters }) {
+function FGMKPR00304({ setSelSimpleFilter, simpleFilter }) {
   const [selectedIndex, setSelectedIndex] = useState(0);
-  // json에 재사용
-  const filterNames = [
-    "추천순",
-    "신상품",
-    "판매량순",
-    "혜택순",
-    "낮은 가격순",
-    "높은 가격순",
-  ];
+
   useEffect(() => {
-    if (sampleFilters) setSimpleFilter(sampleFilters[0]);
+    if (simpleFilter) setSelSimpleFilter(simpleFilter[0]);
   }, []);
   const handleItemClick = (index, filterName) => {
     setSelectedIndex(index);
-    setSimpleFilter(filterName);
+    setSelSimpleFilter(filterName);
   };
 
   const questionIcon = (
@@ -45,8 +37,8 @@ function FGMKPR00304({ setSimpleFilter, sampleFilters }) {
 
   return (
     <StyledList>
-      {sampleFilters &&
-        sampleFilters.map((filterName, index) => (
+      {simpleFilter &&
+        simpleFilter.map((filterName, index) => (
           <StyledItem
             key={index}
             $isSelected={selectedIndex === index}

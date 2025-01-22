@@ -19,20 +19,28 @@ const StyledCountLabel = styled.label`
   font-size: 0.95rem;
   color: #ccc;
 `;
-function BaseRadio({ productName, ProductCount, name, value, onClick, checked, id }) {
+function BaseRadio({
+  productName,
+  ProductCount,
+  name,
+  value,
+  onClick,
+  checked,
+  id,
+}) {
   return (
     <StyledDiv>
       <StyledA>
         <StyledInput
-        id={id}
+          id={id}
           type="radio"
           name={name || "name"}
           value={value || "value"}
           onClick={() => onClick && onClick(value)}
           checked={checked}
         ></StyledInput>
-        <StyledNameLabel htmlFor={id}>{productName || "productName"}</StyledNameLabel>
-        <StyledCountLabel>{ProductCount || "productCount"}</StyledCountLabel>
+        <StyledNameLabel htmlFor={id}>{productName || ""}</StyledNameLabel>
+        <StyledCountLabel>{ProductCount || 0}</StyledCountLabel>
       </StyledA>
     </StyledDiv>
   );

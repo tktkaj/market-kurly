@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import FGMKPR00302 from "./FGMKPR00302";
 
-function FGMKPR00301({ categories }) {
+function FGMKPR00301({ detailFilter, handleDeatilFilter, handleDetailFilter }) {
   return (
     <DetailFiterLayout>
       <div
@@ -41,9 +41,15 @@ function FGMKPR00301({ categories }) {
           초기화
         </StyledButton>
       </div>
-      {categories && categories.map((category, index) => (
-        <FGMKPR00302 key={category.title + index} category={category} />
-      ))}
+      {detailFilter &&
+        detailFilter.map((item, index) => (
+          <FGMKPR00302
+            key={item.title + index}
+            category={item}
+            handleDeatilFilter={handleDeatilFilter}
+            handleDetailFilter={handleDetailFilter}
+          />
+        ))}
     </DetailFiterLayout>
   );
 }

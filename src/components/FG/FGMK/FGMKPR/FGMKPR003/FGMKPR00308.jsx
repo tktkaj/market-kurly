@@ -3,10 +3,11 @@ import styled from "styled-components";
 import CustomCard from "./../../../../com/custom/CustomCard";
 import FGMKPR00307 from "./FGMKPR00307";
 import FGMKPR00303 from "./FGMKPR00303";
-function FGMKPR00308({ totalCount, setSimpleFilter, products, setPage }) {
+function FGMKPR00308({ totalCount, setSelSimpleFilter, products, setPage, simpleFilter}) {
+  
   return (
     <ProductListLayout>
-      <FGMKPR00303 totalCount={totalCount} setSimpleFilter={setSimpleFilter} />
+      <FGMKPR00303 totalCount={totalCount} setSelSimpleFilter={setSelSimpleFilter} simpleFilter={simpleFilter}/>
       <ProductListBox>
         {products &&
           products.map((product, index) => (

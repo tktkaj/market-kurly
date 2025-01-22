@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import BaseRadio from "../../../../com/base/BaseRadio";
 import BaseCheckBox from "../../../../com/base/BaseCheckBox";
-function FGMKPR00302({ category }) {
+function FGMKPR00302({ category, handleDeatilFilter, handleDetailFilter }) {
   const upArrowIcon = (
     <svg
       width="18"
@@ -41,6 +41,7 @@ function FGMKPR00302({ category }) {
           category.type === "product" &&
           category.list.map((item, index) => (
             <BaseCheckBox
+              onClick={() => handleDeatilFilter(item.name)}
               key={item.name + index}
               name={item.name}
               count={item.count}
@@ -51,6 +52,7 @@ function FGMKPR00302({ category }) {
           category.type === "price" &&
           category.list.map((item, index) => (
             <BaseRadio
+              onClick={() => handleDetailFilter(item.name)}
               key={item.name + index}
               productName={item.name}
               ProductCount={item.count}

@@ -68,8 +68,8 @@ function BaseCheckBox({ name, count, onClick, active }) {
               strokeLinejoin="round"
             />
           </StyledSvg>
-          <StyledCateogrySpan>{name || "name"}</StyledCateogrySpan>
-          <StyledCountSpan>{count || "count"}</StyledCountSpan>
+          <StyledCateogrySpan>{name || ""}</StyledCateogrySpan>
+          <StyledCountSpan>{count || 0}</StyledCountSpan>
         </StyledDiv>
       </StyledA>
     </StyledLi>

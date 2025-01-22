@@ -1,36 +1,23 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
-function FGMKPR00305({ setCategory, newFIlters }) {
+function FGMKPR00305({ setSelNewFilters, newFilters }) {
   const [selectedIndex, setSelectedIndex] = useState(0);
-  // json에재사용
-  const category = {
-    title: "신상품",
-    list: [
-      { name: "인기신상랭킹", keyword: "rank" },
-      { name: "입점특가", keyword: "sale" },
-      { name: "요즘간식", keyword: "snack" },
-      { name: "간편한끼", keyword: "once" },
-      { name: "주방·리빙", keyword: "living" },
-      { name: "뷰티", keyword: "beuty" },
-      { name: "패션·잡화", keyword: "fashion" },
-    ],
-  };
   useEffect(() => {
-    if (newFIlters) setCategory(newFIlters.list[0].keyword);
+    if (newFilters) setSelNewFilters(newFilters.list[0].keyword);
   }, []);
   const handleCategoryItem = (e, keyword, index) => {
     e.preventDefault();
-    setCategory(keyword);
+    setSelNewFilters(keyword);
     setSelectedIndex(index);
   };
 
   return (
     <ProductCategoryLayout>
-      <StyledTitle>{newFIlters && newFIlters.title}</StyledTitle>
+      <StyledTitle>{newFilters && newFilters.title}</StyledTitle>
       <StyledList>
-        {newFIlters &&
-          newFIlters.list.map((categoryItem, index) => (
+        {newFilters &&
+          newFilters.list.map((categoryItem, index) => (
             <StyledItem
               key={categoryItem + index}
               $isSelected={index === selectedIndex}
