@@ -1,17 +1,32 @@
 [
-    {
-        "userId": "john",
-        "product": {
-            "category": "2025 설 선물",
-            "sale": "",
-            "price": "57,900원 이상",
-            "img": "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/c93107b8-b783-4694-8c9c-d65650464348.jpg",
-            "title": "[해운대암소갈비집] 1++ 한우 불고기 세트 (4개입)",
-            "oriPrice": 139000,
-            "disPercent": "10%",
-            "disPrice": 125100,
-            "url": "",
-            "review": "999+"
-        }
+  {
+    "userId": "john",
+    "product": {
+      "category": "2025 설 선물",
+      "sale": "",
+      "price": "57,900원 이상",
+      "img": "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/c93107b8-b783-4694-8c9c-d65650464348.jpg",
+      "title": "[해운대암소갈비집] 1++ 한우 불고기 세트 (4개입)",
+      "oriPrice": 139000,
+      "disPercent": "10%",
+      "disPrice": 125100,
+      "url": "",
+      "review": "999+"
     }
+  },
+  {
+    "userId": "john",
+    "product": {
+      "category": "스킨케어·메이크업",
+      "sale": "10%쿠폰+증정",
+      "price": "57,900원 이상",
+      "img": "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/fa5f59f1-a745-4d0e-9389-db245fa0a25f.jpg",
+      "title": "[에스트라] 아토베리어365 크림 80ml 4개 세트",
+      "oriPrice": 132000,
+      "disPercent": "22%",
+      "disPrice": 102960,
+      "url": "",
+      "review": "999+"
+    }
+  }
 ]

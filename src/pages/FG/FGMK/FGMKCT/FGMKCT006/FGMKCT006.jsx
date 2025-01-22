@@ -8,10 +8,9 @@ function FGMKCT006() {
   const user = auth.userInfo();
   const [myCart, setMyCart] = useState(null);
   useEffect(() => {
-    console.log("useEffect 발동");
     const fetchMyCart = async () => {
-      const res = await ApiUtils.sendGet("/cart", { userId: user });
-      if (res) setMyCart(res.myCart);
+      const res = await ApiUtils.sendGet("/cart");
+      if (res) setMyCart(res);
     };
     fetchMyCart();
   }, []);
@@ -19,8 +18,7 @@ function FGMKCT006() {
   return (
     <StyledLayout>
       <StyledBox>장바구니 내역</StyledBox>
-      {myCart &&
-        myCart.map((item, index) => <div key={item + index}>{item.title}</div>)}
+      {myCart && myCart.map((item, index) => <div>{item.product.title}</div>)}
     </StyledLayout>
   );
 }
