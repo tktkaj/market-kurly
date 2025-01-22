@@ -41,7 +41,7 @@ function FGMKPR00301({ categories }) {
           초기화
         </StyledButton>
       </div>
-      {categories.map((category, index) => (
+      {categories && categories.map((category, index) => (
         <FGMKPR00302 key={category.title + index} category={category} />
       ))}
     </DetailFiterLayout>

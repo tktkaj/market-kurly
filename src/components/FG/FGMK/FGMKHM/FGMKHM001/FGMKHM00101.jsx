@@ -27,9 +27,6 @@ function FGMKHM00101({ product }) {
     />
   );
 
-  useEffect(() => {
-    console.log("01에서" + product);
-  });
   return (
     <MainBannerLayout>
       <Swiper

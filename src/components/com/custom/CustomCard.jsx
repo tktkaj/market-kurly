@@ -5,11 +5,13 @@ import CustomCoupon from "./CustomCoupon";
 import useCore from "../../../hooks/useCore";
 function CustomCard({ product, onClick }) {
   const core = useCore();
+  const formatPrice = (price) => {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
   return (
     <StyledCardDiv
       onClick={() => {
-        console.log(product.url);
-        core.goPage(product.url);
+        core.goPage("/FG/FGMK/FGMKDT/FGMKDT004", { product });
       }}
     >
       <StyledImgDiv>
@@ -25,10 +27,12 @@ function CustomCard({ product, onClick }) {
         />
         <StyledProductTitle>{product.title}</StyledProductTitle>
         <StyledPriceSpan>
-          <OriginalPriceSpan>{product.oriPrice}</OriginalPriceSpan>
+          <OriginalPriceSpan>{formatPrice(product.oriPrice)}</OriginalPriceSpan>
           <StyledDiscoutDiv>
             <DiscoutPerSpan>{product.disPercent}</DiscoutPerSpan>
-            <DiscountPriceSpan>{product.disPrice}</DiscountPriceSpan>
+            <DiscountPriceSpan>
+              {formatPrice(product.disPrice)}원
+            </DiscountPriceSpan>
           </StyledDiscoutDiv>
         </StyledPriceSpan>
       </StyledDetailDiv>

@@ -37,7 +37,8 @@ function FGMKPR00302({ category }) {
         </DetailFiterItemButton>
       )}
       <StyledDiv>
-        {category.type === "product" &&
+        {category &&
+          category.type === "product" &&
           category.list.map((item, index) => (
             <BaseCheckBox
               key={item.name + index}
@@ -46,7 +47,8 @@ function FGMKPR00302({ category }) {
               value={item.name}
             />
           ))}
-        {category.type === "price" &&
+        {category &&
+          category.type === "price" &&
           category.list.map((item, index) => (
             <BaseRadio
               key={item.name + index}
@@ -56,9 +58,9 @@ function FGMKPR00302({ category }) {
               value={item.name}
             />
           ))}
-        {category.type !== "price" && (
+        {category && category.type !== "price" && (
           <MoreBtn>
-            <span style={{color:"#999"}}>카테고리 더보기</span>
+            <span style={{ color: "#999" }}>카테고리 더보기</span>
             <div style={{ display: "flex", alignItems: "center" }}>
               {rightArrowIcon}
             </div>

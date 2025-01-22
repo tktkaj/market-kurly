@@ -123,13 +123,13 @@ function LayoutFooter() {
         </LeftContentWrapper>
         <RightContentWrapper>
           <RightContentUl>
-            <li>컬리소개</li>
-            <li>컬리소개영상</li>
-            <li>투자정보</li>
-            <li>인재채용</li>
-            <li>이용약관</li>
-            <li>개인정보처리방침</li>
-            <li>이용안내</li>
+            <li style={{fontSize:"0.7rem", width:"50px"}}>컬리소개</li>
+            <li style={{fontSize:"0.7rem", width:"70px"}}>컬리소개영상</li>
+            <li style={{fontSize:"0.7rem", width:"50px"}}>투자정보</li>
+            <li style={{fontSize:"0.7rem", width:"50px"}}>인재채용</li>
+            <li style={{fontSize:"0.7rem", width:"50px"}}>이용약관</li>
+            <li style={{fontSize:"0.7rem", width:"90px"}}>개인정보처리방침</li>
+            <li style={{fontSize:"0.7rem", width:"50px"}}>이용안내</li>
           </RightContentUl>
           <CompanyInfo>
             법인명 (상호) : 주식회사 컬리

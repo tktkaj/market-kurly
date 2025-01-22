@@ -22,9 +22,8 @@ function App() {
       setHeaderInfo(res.headerInfo);
 
     }
-
     fetchHeaderInfo();
-  }, []);
+  }, [historyList]);
   return (
     <>
       <LayoutPage>

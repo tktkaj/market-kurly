@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
-function FGMKPR00304({ setSimpleFilter }) {
+function FGMKPR00304({ setSimpleFilter, sampleFilters }) {
   const [selectedIndex, setSelectedIndex] = useState(0);
+  // json에 재사용
   const filterNames = [
     "추천순",
     "신상품",
@@ -12,7 +13,7 @@ function FGMKPR00304({ setSimpleFilter }) {
     "높은 가격순",
   ];
   useEffect(() => {
-    setSimpleFilter(filterNames[0]);
+    if (sampleFilters) setSimpleFilter(sampleFilters[0]);
   }, []);
   const handleItemClick = (index, filterName) => {
     setSelectedIndex(index);
@@ -44,16 +45,17 @@ function FGMKPR00304({ setSimpleFilter }) {
 
   return (
     <StyledList>
-      {filterNames.map((filterName, index) => (
-        <StyledItem
-          key={index}
-          $isSelected={selectedIndex === index}
-          onClick={() => handleItemClick(index, filterName)}
-        >
-          {filterName}
-          {index === 0 && questionIcon}
-        </StyledItem>
-      ))}
+      {sampleFilters &&
+        sampleFilters.map((filterName, index) => (
+          <StyledItem
+            key={index}
+            $isSelected={selectedIndex === index}
+            onClick={() => handleItemClick(index, filterName)}
+          >
+            {filterName}
+            {index === 0 && questionIcon}
+          </StyledItem>
+        ))}
     </StyledList>
   );
 }

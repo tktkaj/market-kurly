@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
-function FGMKPR00305({ setCategory }) {
+function FGMKPR00305({ setCategory, newFIlters }) {
   const [selectedIndex, setSelectedIndex] = useState(0);
+  // json에재사용
   const category = {
     title: "신상품",
     list: [
@@ -16,7 +17,7 @@ function FGMKPR00305({ setCategory }) {
     ],
   };
   useEffect(() => {
-    setCategory(category.list[0].keyword);
+    if (newFIlters) setCategory(newFIlters.list[0].keyword);
   }, []);
   const handleCategoryItem = (e, keyword, index) => {
     e.preventDefault();
@@ -26,10 +27,10 @@ function FGMKPR00305({ setCategory }) {
 
   return (
     <ProductCategoryLayout>
-      <StyledTitle>{category && category.title}</StyledTitle>
+      <StyledTitle>{newFIlters && newFIlters.title}</StyledTitle>
       <StyledList>
-        {category &&
-          category.list.map((categoryItem, index) => (
+        {newFIlters &&
+          newFIlters.list.map((categoryItem, index) => (
             <StyledItem
               key={categoryItem + index}
               $isSelected={index === selectedIndex}

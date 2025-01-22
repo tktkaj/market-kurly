@@ -26,7 +26,10 @@ function UtilMenu({ utilItems }) {
     }
   };
   const handleLogout = () => {
-    if (user) auth.logout();
+    if (user) {
+      auth.logout();
+      core.goPage("/FG/FGMK/FGMKHM/FGMKHM001");
+    }
   };
   useEffect(() => {
     if (user) {
