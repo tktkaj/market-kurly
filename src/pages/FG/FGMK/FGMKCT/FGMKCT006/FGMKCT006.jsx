@@ -9,8 +9,12 @@ function FGMKCT006() {
   const auth = useAuth();
   const user = auth.userInfo();
   const [myCart, setMyCart] = useState(null);
-  const [totalOriPrice, setTotaOriPrice] = useState(0);
-  const [totalDisPrice, setOriPrice] = useState(0);
+  const [totalOriPrice, setTotalOriPrice] = useState(0);
+  const [totalDisPrice, setTotalDisPrice] = useState(0);
+
+  const formatPrice = (price) => {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
   // 장바구니 전체삭제
   const deleteAllCart = async () => {
     const res = await ApiUtils.sendPost("/delete-all-cart", { userId: user });
@@ -21,14 +25,42 @@ function FGMKCT006() {
     const res = await ApiUtils.sendPost("/delete-cart", { index: idx });
     if (res) setMyCart(res);
   };
+
+  const calculateTotalOriPrice = (cart) => {
+    if (!cart) return 0;
+    return cart.reduce((total, item) => {
+      const price = item.product ? item.product.oriPrice : 0;
+      return total + (price || 0);
+    }, 0);
+  };
+
+  // 할인 가격의 총합을 계산하는 함수
+  const calculateTotalDisPrice = (cart) => {
+    if (!cart) return 0;
+    return cart.reduce((total, item) => {
+      const price = item.product ? item.product.disPrice : 0;
+      return total + (price || 0);
+    }, 0);
+  };
   // 장바구니 조회
   useEffect(() => {
     const fetchMyCart = async () => {
       const res = await ApiUtils.sendGet("/cart", { userId: user });
-      if (res) setMyCart(res);
+      if (res) {
+        setMyCart(res);
+        setTotalOriPrice(calculateTotalOriPrice(res));
+        setTotalDisPrice(calculateTotalDisPrice(res));
+      }
     };
     fetchMyCart();
-  }, []);
+  }, [user]);
+
+  useEffect(() => {
+    if (myCart) {
+      setTotalOriPrice(calculateTotalOriPrice(myCart));
+      setTotalDisPrice(calculateTotalDisPrice(myCart));
+    }
+  }, [myCart]);
 
   return (
     <StyledLayout>
@@ -42,7 +74,24 @@ function FGMKCT006() {
             <FGMKCT00602 product={myCart} onClick={deleteCart} />
           </ProductBox>
           <PriceBox>
-            <FGMKCT00603 />
+            <FGMKCT00603
+              totalOriPrice={totalOriPrice}
+              totalDisPrice={totalDisPrice}
+            />
+            <button
+              style={{
+                backgroundColor: "#672091",
+                color: "#fff",
+                width: "390px",
+                padding: "15px 16px",
+                borderRadius: "10px",
+                fontSize: "1.1rem",
+                fontWeight: "bold",
+                marginTop: "15px",
+              }}
+            >
+              {formatPrice(`${totalDisPrice}원 주문하기`)}
+            </button>
           </PriceBox>
         </CartBox>
       </StyledBox>
@@ -82,28 +131,3 @@ const ProductBox = styled.div`
 `;
 const PriceBox = styled.div``;
 export default FGMKCT006;
-
-// {myCart &&
-//   myCart.map((item, index) => (
-//     <div
-//       key={item + index}
-//       style={{
-//         cursor: "pointer",
-//         padding: "15px",
-//         backgroundColor: "#eee",
-//         marginTop: "10px",
-//       }}
-//       onClick={() => deleteCart(index)}
-//     >
-//       {item.product.title}
-//     </div>
-//   ))}
-// <div style={{ cursor: "pointer" }} onClick={null}>
-//   장바구니추가
-// </div>
-// <div style={{ cursor: "pointer" }} onClick={() => deleteCart()}>
-//   장바구니부분삭제
-// </div>
-// <div style={{ cursor: "pointer" }} onClick={() => deleteAllCart()}>
-//   장바구니전체삭제
-// </div>

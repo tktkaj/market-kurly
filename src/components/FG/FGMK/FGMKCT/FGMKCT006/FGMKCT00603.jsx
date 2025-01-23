@@ -1,6 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-function FGMKCT00603() {
+function FGMKCT00603({ totalOriPrice, totalDisPrice }) {
+  const formatPrice = (price) => {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
   return (
     <StyledLayout>
       <TitleDiv>
@@ -9,11 +12,15 @@ function FGMKCT00603() {
       <PriceDiv>
         <StyledDiv>
           <span style={{ color: "#333" }}>상품금액</span>
-          <span style={{ fontWeight: "bold" }}>123123원</span>
+          <span style={{ fontWeight: "bold" }}>
+            {formatPrice(`${totalOriPrice}원`)}
+          </span>
         </StyledDiv>
         <StyledDiv>
           <span style={{ color: "#333" }}>상품할인금액</span>
-          <span style={{ color: "#fa622f", fontWeight: "bold" }}>-2313원</span>
+          <span style={{ color: "#fa622f", fontWeight: "bold" }}>
+            {formatPrice(`${totalDisPrice - totalOriPrice}원`)}
+          </span>
         </StyledDiv>
         <StyledDiv>
           <span style={{ color: "#333" }}>배송비</span>
@@ -24,7 +31,7 @@ function FGMKCT00603() {
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <span style={{ color: "#333" }}>결제예정금액</span>
           <span style={{ fontWeight: "bold", fontSize: "1.5rem" }}>
-            123123원
+            {formatPrice(`${totalDisPrice}원`)}
           </span>
         </div>
         <div style={{ display: "flex", justifyContent: "end" }}>
