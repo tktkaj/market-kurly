@@ -2,12 +2,15 @@ import React from "react";
 import styled from "styled-components";
 import BaseInput from "../../../../com/base/BaseInput"
 import BaseButton from "../../../../com/base/BaseButton"
-
+import useCore from "../../../../../hooks/useCore";
 function FGMKLO00201({ onClick, onChangeUserId, onChangeUserPw }) {
-  
+  const core = useCore();
   const handleOnClick = () =>{
     if(onClick)
       onClick();
+  }
+  const goSignup = () =>{
+    core.goPage("/FG/FGMK/FGMKSU/FGMKSU005");
   }
   return (
     <LoginFormLayout>
@@ -48,7 +51,7 @@ function FGMKLO00201({ onClick, onChangeUserId, onChangeUserPw }) {
           variant="outlinePurple"
           btnText="회원가입"
           size="ml"
-          onClick={()=>{}}
+          onClick={()=>{goSignup()}}
         >
           로그인
         </BaseButton>{" "}

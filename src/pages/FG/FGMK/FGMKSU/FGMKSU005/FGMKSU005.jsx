@@ -7,11 +7,11 @@ import LayerUtils from "../../../../../utils/LayerUtils";
 import BaseButton from "../../../../../components/com/base/BaseButton";
 function FGMKSU005() {
   const core = useCore();
-  const [userId, setUserId] = useState("");
-  const [userPw, setUserPw] = useState("");
-  const [userPwCheck, setUserPwCheck] = useState("");
-  const [userName, setUserName] = useState("");
-  const [userEmail, setUserEmail] = useState("");
+  const [userId, setUserId] = useState(null);
+  const [userPw, setUserPw] = useState(null);
+  const [userPwCheck, setUserPwCheck] = useState(null);
+  const [userName, setUserName] = useState(null);
+  const [userEmail, setUserEmail] = useState(null);
   const [userRole, setUserRole] = useState("admin");
   const [checkPassword, setCheckPassword] = useState(true);
 
@@ -24,7 +24,7 @@ function FGMKSU005() {
   };
 
   const handleUserPwCheck = (value) => {
-    setUserPw(value);
+    setUserPwCheck(value);
   };
 
   const handleUserName = (value) => {
@@ -41,8 +41,11 @@ function FGMKSU005() {
   };
 
   //   비밀번호 & 비밀번호 확인 검증
-  const checkPw = () => {};
-  //   input에 빈값이 있는지 검증
+  const checkPw = () => {
+    if (userPw && userPwCheck)
+      userPw !== userPwCheck ? setCheckPassword(false) : setCheckPassword(true);
+  };
+  //   input에 공란이 있는지 검증
   const checkInput = () => {
     if (!userId || !userPw || !userName || !userEmail || !userRole) {
       return false;
@@ -51,25 +54,35 @@ function FGMKSU005() {
   };
   //   회원가입
   const fetchSignup = async () => {
-    const res = await ApiUtils.sendPost("/signup", {
-      id: userId,
-      pw: userPw,
-      name: userName,
-      email: userEmail,
-      role: userRole,
-    });
-    if (res) {
-      const result = await LayerUtils.showAlert("회원가입이 완료되었습니다.");
-      if (result) core.goPage("/FG/FGMK/FGMKLO/FGMKLO002");
+    if (checkInput()) {
+      const res = await ApiUtils.sendPost("/signup", {
+        id: userId,
+        pw: userPw,
+        name: userName,
+        email: userEmail,
+        role: userRole,
+      });
+      if (res) {
+        const result = await LayerUtils.showAlert("회원가입이 완료되었습니다.");
+        if (result) core.goPage("/FG/FGMK/FGMKLO/FGMKLO002");
+      }
+    } else {
+      LayerUtils.showAlert("모든 정보를 입력해주세요.");
     }
   };
+
+  useEffect(() => {
+    checkPw();
+  }, [userPw, userPwCheck]);
   return (
     <StyledLayout>
       <TitleBox>회원가입</TitleBox>
-      <LineBox>필수입력사항</LineBox>
       <StyledBox>
+        <LineBox>필수입력사항</LineBox>
         <StyledDiv>
-          <TextDiv>아이디</TextDiv>
+          <TextDiv>
+            <StyledLabel>아이디</StyledLabel>
+          </TextDiv>
           <InputDiv>
             <BaseInput
               size="ml"
@@ -80,63 +93,99 @@ function FGMKSU005() {
           <SpareDiv></SpareDiv>
         </StyledDiv>
         <StyledDiv>
-          <TextDiv>비밀번호</TextDiv>
+          <TextDiv>
+            <StyledLabel>비밀번호</StyledLabel>
+          </TextDiv>
           <InputDiv>
-            <BaseInput size="ml" onChange={handleUserPw} />
-          </InputDiv>
-          <SpareDiv></SpareDiv>
-        </StyledDiv>
-        <StyledDiv>
-          <TextDiv>비밀번호확인</TextDiv>
-          <InputDiv>
-            <BaseInput size="ml" onChange={handleUserPwCheck} />
-          </InputDiv>
-          <SpareDiv></SpareDiv>
-        </StyledDiv>
-        <StyledDiv>
-          <CheckPwDiv check={checkPassword}>
-            비밀번호가 일치하지 않습니다.
-          </CheckPwDiv>
-        </StyledDiv>
-        <StyledDiv>
-          <TextDiv>이름</TextDiv>
-          <InputDiv>
-            <BaseInput size="ml" onChange={handleUserName} />
-          </InputDiv>
-          <SpareDiv></SpareDiv>
-        </StyledDiv>
-        <StyledDiv>
-          <TextDiv>이메일</TextDiv>
-          <InputDiv>
-            <BaseInput size="ml" onChange={handleUserEmail} />
-          </InputDiv>
-          <SpareDiv></SpareDiv>
-        </StyledDiv>
-        <StyledDiv>
-          <TextDiv>Role</TextDiv>
-          <InputDiv>
-            <input
-              type="radio"
-              value="admin"
-              name="role"
-              onChange={handleRoleChange}
-              checked
+            <BaseInput
+              type="password"
+              size="ml"
+              onChange={handleUserPw}
+              placeholder="비밀번호를 입력해주세요"
             />
-            admin
-            <input
-              type="radio"
-              value="user"
-              name="role"
-              onChange={handleRoleChange}
+          </InputDiv>
+          <SpareDiv></SpareDiv>
+        </StyledDiv>
+        <StyledDiv>
+          <TextDiv>
+            <StyledLabel>비밀번호확인</StyledLabel>
+          </TextDiv>
+          <InputDiv>
+            <BaseInput
+              type="password"
+              size="ml"
+              onChange={handleUserPwCheck}
+              placeholder="비밀번호를 한번 더 입력해주세요"
             />
-            user
-            <input
-              type="radio"
-              value="developer"
-              name="role"
-              onChange={handleRoleChange}
+          </InputDiv>
+          <SpareDiv></SpareDiv>
+        </StyledDiv>
+        <CheckPwDiv check={checkPassword}>
+          비밀번호가 일치하지 않습니다.
+        </CheckPwDiv>
+        <StyledDiv>
+          <TextDiv>
+            <StyledLabel>이름</StyledLabel>
+          </TextDiv>
+          <InputDiv>
+            <BaseInput
+              size="ml"
+              onChange={handleUserName}
+              placeholder="이름을 입력해주세요"
             />
-            developer
+          </InputDiv>
+          <SpareDiv></SpareDiv>
+        </StyledDiv>
+        <StyledDiv>
+          <TextDiv>
+            <StyledLabel>이메일</StyledLabel>
+          </TextDiv>
+          <InputDiv>
+            <BaseInput
+              type="email"
+              size="ml"
+              onChange={handleUserEmail}
+              placeholder="이메일을 입력해주세요"
+            />
+          </InputDiv>
+          <SpareDiv></SpareDiv>
+        </StyledDiv>
+        <StyledDiv>
+          <TextDiv>
+            <StyledLabel>Role</StyledLabel>
+          </TextDiv>
+          <InputDiv>
+            <RadioDiv>
+              <input
+                style={{ paddingRight: "20px" }}
+                type="radio"
+                value="admin"
+                name="role"
+                id="admin"
+                onChange={handleRoleChange}
+              />
+              <RoleLabel htmlFor="admin">admin</RoleLabel>
+            </RadioDiv>
+            <RadioDiv>
+              <input
+                type="radio"
+                value="user"
+                name="role"
+                id="user"
+                onChange={handleRoleChange}
+              />
+              <RoleLabel htmlFor="user">user</RoleLabel>
+            </RadioDiv>
+            <RadioDiv>
+              <input
+                type="radio"
+                value="developer"
+                name="role"
+                id="developer"
+                onChange={handleRoleChange}
+              />
+              <RoleLabel htmlFor="developer">developer</RoleLabel>
+            </RadioDiv>
           </InputDiv>
           <SpareDiv></SpareDiv>
         </StyledDiv>
@@ -156,30 +205,71 @@ function FGMKSU005() {
 const StyledLayout = styled.div`
   width: 1040px;
   margin: 0 auto;
-  margin-top: 30px;
+  margin-top: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 const TitleBox = styled.div`
   text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 50px;
 `;
 const LineBox = styled.div`
   width: 100%;
   border-bottom: 2px solid black;
   display: flex;
   justify-content: end;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  color: #666;
+
+  &::before {
+    content: "*";
+    color: red;
+  }
 `;
 const StyledBox = styled.div``;
 const StyledDiv = styled.div`
   display: flex;
   align-items: center;
+  margin-bottom: 20px;
 `;
-const TextDiv = styled.div``;
-const InputDiv = styled.div``;
-const SpareDiv = styled.div``;
-const ButtonDiv = styled.div``;
+const TextDiv = styled.div`
+  width: 150px;
+  padding-left: 20px;
+`;
+const StyledLabel = styled.label`
+  font-size: 0.8rem;
+  font-weight: bold;
+
+  &::after {
+    content: "*";
+    color: red;
+  }
+`;
+const InputDiv = styled.div`
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+`;
+const SpareDiv = styled.div`
+  width: 150px;
+`;
+const RadioDiv = styled.div`
+  display: flex;
+`;
+const ButtonDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+`;
+const RoleLabel = styled.label``;
 const CheckPwDiv = styled.div`
+  margin: 0px;
   color: red;
   display: ${(props) => (props.check ? "none" : "block")};
 `;
