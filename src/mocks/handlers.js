@@ -78,10 +78,11 @@ export const handlers = [
     return HttpResponse.json(req);
   }),
   // 장바구니 조회
-  http.get("/cart", async ({ request }) => {
-    const url = new URL(request.url);
-    const userId = url.searchParams.get("userId");
+  http.post("/myCart", async ({ request }) => {
+    const req = await request.json();
+    const userId = req.userId;
     const myCart = cart.filter((item) => item.userId === userId);
+
     return HttpResponse.json(myCart);
   }),
   // 장바구니 담기
@@ -108,7 +109,7 @@ export const handlers = [
     return HttpResponse.json(cart);
   }),
   // 상품 수량 감소
-  http.post("cart-count-down", async ({ request }) => {
+  http.post("/cart-count-down", async ({ request }) => {
     const req = await request.json();
     const idx = req.index;
 
@@ -117,7 +118,7 @@ export const handlers = [
     return HttpResponse.json(cart);
   }),
   // 상품 수량 증가
-  http.post("cart-count-up", async ({ request }) => {
+  http.post("/cart-count-up", async ({ request }) => {
     const req = await request.json();
     const idx = req.index;
 

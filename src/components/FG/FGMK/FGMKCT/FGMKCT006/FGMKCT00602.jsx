@@ -1,26 +1,30 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 
-function FGMKCT00602({ product, onClick, countUp, countDown }) {
+function FGMKCT00602({ myCart, onClick, countUp, countDown }) {
   const formatPrice = (price) => {
     return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
+
+  useEffect(() => {
+    console.log("마이카트는", myCart);
+  });
   return (
     <StyledLayout>
-      {product &&
-        product.map((item, index) => (
+      {myCart &&
+        myCart[0].product.map((item, index) => (
           <ProductBox key={item + index}>
             <StyledBox>
               <TitleBox>
-                <div style={{ color: "#222" }}>{item.product.title}</div>
+                <div style={{ color: "#222" }}>{item.title}</div>
                 <div
                   style={{
-                    color: "#848f9a",
+                    color: "#2b4258",
                     fontSize: "0.9rem",
                     marginTop: "5px",
                   }}
                 >
-                  {item.product.category}
+                  {item.category}
                 </div>
               </TitleBox>
               <button
@@ -40,12 +44,12 @@ function FGMKCT00602({ product, onClick, countUp, countDown }) {
             </StyledBox>
             <Countbox>
               <ImgBox>
-                <img src={item.product.img} alt="" width="100%" />
+                <img src={item.img} alt="" width="100%" />
               </ImgBox>
               <CountDiv>
                 <div>
                   <span style={{ fontWeight: "bold", paddingRight: "5px" }}>
-                    {product && `${formatPrice(item.product.disPrice)}원`}
+                    {`${formatPrice(item.disPrice)}원`}
                   </span>
                   <span
                     style={{
@@ -54,7 +58,7 @@ function FGMKCT00602({ product, onClick, countUp, countDown }) {
                       fontSize: "0.9rem",
                     }}
                   >
-                    {product && `${formatPrice(item.product.oriPrice)}원`}
+                    {`${formatPrice(item.oriPrice)}원`}
                   </span>
                 </div>
                 <div

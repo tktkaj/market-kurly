@@ -16,11 +16,11 @@ function App() {
   }, [historyList]);
 
   const [headerInfo, setHeaderInfo] = useState(null);
+
   useEffect(() => {
     async function fetchHeaderInfo() {
       const res = await ApiUtils.sendGet("/headerInfo");
-      setHeaderInfo(res.headerInfo);
-
+      if (res) setHeaderInfo(res.headerInfo);
     }
     fetchHeaderInfo();
   }, [historyList]);

@@ -66,7 +66,6 @@ function NewProduct() {
     fetchProductMenuInfo();
   }, []);
 
-  useEffect(() => {}, []);
 
   useEffect(() => {
     const fetchProductInfo = async () => {

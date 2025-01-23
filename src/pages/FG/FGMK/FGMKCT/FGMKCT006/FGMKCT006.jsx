@@ -6,9 +6,9 @@ import FGMKCT00601 from "../../../../../components/FG/FGMK/FGMKCT/FGMKCT006/FGMK
 import FGMKCT00602 from "../../../../../components/FG/FGMK/FGMKCT/FGMKCT006/FGMKCT00602";
 import FGMKCT00603 from "../../../../../components/FG/FGMK/FGMKCT/FGMKCT006/FGMKCT00603";
 import LayerUtils from "../../../../../utils/LayerUtils";
+import { useSelector } from "react-redux";
 function FGMKCT006() {
-  const auth = useAuth();
-  const user = auth.userInfo();
+  const user = useSelector((state) => state.userInfo.id);
   const [myCart, setMyCart] = useState(null);
   const [totalOriPrice, setTotalOriPrice] = useState(0);
   const [totalDisPrice, setTotalDisPrice] = useState(0);
@@ -26,11 +26,11 @@ function FGMKCT006() {
     const res = await ApiUtils.sendPost("/delete-cart", { index: idx });
     if (res) setMyCart(res);
   };
-
+  // 원 가격의 총합을 계산하는 함수
   const calculateTotalOriPrice = (cart) => {
     if (!cart) return 0;
-    return cart.reduce((total, item) => {
-      const price = item.product ? item.product.oriPrice * item.count : 0;
+    return cart[0].product.reduce((total, item) => {
+      const price = item ? item.oriPrice * item.count : 0;
       return total + (price || 0);
     }, 0);
   };
@@ -38,26 +38,25 @@ function FGMKCT006() {
   // 할인 가격의 총합을 계산하는 함수
   const calculateTotalDisPrice = (cart) => {
     if (!cart) return 0;
-    return cart.reduce((total, item) => {
-      const price = item.product
-        ? item.product.disPrice * item.count
-        : 0;
+    return cart[0].product.reduce((total, item) => {
+      const price = item ? item.disPrice * item.count : 0;
       return total + (price || 0);
     }, 0);
   };
   // 상품 수량 증가
   const countUp = async (idx) => {
-    await ApiUtils.sendPost("cart-count-up", { index: idx });
-    const res = await ApiUtils.sendGet("/cart", { userId: user });
+    await ApiUtils.sendPost("/cart-count-up", { index: idx });
+    const res = await ApiUtils.sendPost("/myCart", { userId: user });
     if (res) {
       setMyCart(res);
       setTotalOriPrice(calculateTotalOriPrice(res));
       setTotalDisPrice(calculateTotalDisPrice(res));
     }
   };
+  // 상품 수량 감소
   const countDown = async (idx) => {
-    await ApiUtils.sendPost("cart-count-down", { index: idx });
-    const res = await ApiUtils.sendGet("/cart", { userId: user });
+    await ApiUtils.sendPost("/cart-count-down", { index: idx });
+    const res = await ApiUtils.sendPost("/myCart", { userId: user });
     if (res) {
       setMyCart(res);
       setTotalOriPrice(calculateTotalOriPrice(res));
@@ -67,7 +66,7 @@ function FGMKCT006() {
   // 장바구니 조회
   useEffect(() => {
     const fetchMyCart = async () => {
-      const res = await ApiUtils.sendGet("/cart", { userId: user });
+      const res = await ApiUtils.sendPost("/myCart", { userId: user });
       if (res) {
         setMyCart(res);
         setTotalOriPrice(calculateTotalOriPrice(res));
@@ -94,7 +93,7 @@ function FGMKCT006() {
           <ProductBox>
             <FGMKCT00601 onClick={deleteAllCart} />
             <FGMKCT00602
-              product={myCart}
+              myCart={myCart}
               onClick={deleteCart}
               countUp={countUp}
               countDown={countDown}
