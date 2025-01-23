@@ -5,6 +5,7 @@ import useAuth from "../../../../../hooks/useAuth";
 import FGMKCT00601 from "../../../../../components/FG/FGMK/FGMKCT/FGMKCT006/FGMKCT00601";
 import FGMKCT00602 from "../../../../../components/FG/FGMK/FGMKCT/FGMKCT006/FGMKCT00602";
 import FGMKCT00603 from "../../../../../components/FG/FGMK/FGMKCT/FGMKCT006/FGMKCT00603";
+import LayerUtils from "../../../../../utils/LayerUtils";
 function FGMKCT006() {
   const auth = useAuth();
   const user = auth.userInfo();
@@ -29,7 +30,7 @@ function FGMKCT006() {
   const calculateTotalOriPrice = (cart) => {
     if (!cart) return 0;
     return cart.reduce((total, item) => {
-      const price = item.product ? item.product.oriPrice : 0;
+      const price = item.product ? item.product.oriPrice * item.count : 0;
       return total + (price || 0);
     }, 0);
   };
@@ -38,9 +39,30 @@ function FGMKCT006() {
   const calculateTotalDisPrice = (cart) => {
     if (!cart) return 0;
     return cart.reduce((total, item) => {
-      const price = item.product ? item.product.disPrice : 0;
+      const price = item.product
+        ? item.product.disPrice * item.count
+        : 0;
       return total + (price || 0);
     }, 0);
+  };
+  // 상품 수량 증가
+  const countUp = async (idx) => {
+    await ApiUtils.sendPost("cart-count-up", { index: idx });
+    const res = await ApiUtils.sendGet("/cart", { userId: user });
+    if (res) {
+      setMyCart(res);
+      setTotalOriPrice(calculateTotalOriPrice(res));
+      setTotalDisPrice(calculateTotalDisPrice(res));
+    }
+  };
+  const countDown = async (idx) => {
+    await ApiUtils.sendPost("cart-count-down", { index: idx });
+    const res = await ApiUtils.sendGet("/cart", { userId: user });
+    if (res) {
+      setMyCart(res);
+      setTotalOriPrice(calculateTotalOriPrice(res));
+      setTotalDisPrice(calculateTotalDisPrice(res));
+    }
   };
   // 장바구니 조회
   useEffect(() => {
@@ -53,7 +75,7 @@ function FGMKCT006() {
       }
     };
     fetchMyCart();
-  }, [user]);
+  }, []);
 
   useEffect(() => {
     if (myCart) {
@@ -71,7 +93,12 @@ function FGMKCT006() {
         <CartBox>
           <ProductBox>
             <FGMKCT00601 onClick={deleteAllCart} />
-            <FGMKCT00602 product={myCart} onClick={deleteCart} />
+            <FGMKCT00602
+              product={myCart}
+              onClick={deleteCart}
+              countUp={countUp}
+              countDown={countDown}
+            />
           </ProductBox>
           <PriceBox>
             <FGMKCT00603
@@ -88,7 +115,9 @@ function FGMKCT006() {
                 fontSize: "1.1rem",
                 fontWeight: "bold",
                 marginTop: "15px",
+                cursor: "pointer",
               }}
+              onClick={() => LayerUtils.showAlert("주문 기능은 아직 없어요.")}
             >
               {formatPrice(`${totalDisPrice}원 주문하기`)}
             </button>

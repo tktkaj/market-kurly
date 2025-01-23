@@ -1,6 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-function FGMKCT00603({ totalOriPrice, totalDisPrice }) {
+function FGMKCT00603({
+  totalOriPrice,
+  totalDisPrice,
+}) {
   const formatPrice = (price) => {
     return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };

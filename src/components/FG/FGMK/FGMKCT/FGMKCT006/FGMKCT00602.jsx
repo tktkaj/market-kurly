@@ -1,14 +1,10 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 
-function FGMKCT00602({ product, onClick }) {
+function FGMKCT00602({ product, onClick, countUp, countDown }) {
   const formatPrice = (price) => {
     return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
-  useEffect(() => {
-    console.log("여기야");
-    console.log(product);
-  });
   return (
     <StyledLayout>
       {product &&
@@ -72,9 +68,14 @@ function FGMKCT00602({ product, onClick }) {
                     borderRadius: "50px",
                   }}
                 >
-                  <CountButton>-</CountButton>
-                  <span style={{fontWeight:"bold"}}>1</span>
-                  <CountButton>+</CountButton>
+                  <CountButton
+                    disabled={item.count === 1}
+                    onClick={() => countDown(index)}
+                  >
+                    -
+                  </CountButton>
+                  <span style={{ fontWeight: "bold" }}>{item.count}</span>
+                  <CountButton onClick={() => countUp(index)}>+</CountButton>
                 </div>
               </CountDiv>
             </Countbox>

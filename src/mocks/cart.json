@@ -12,7 +12,8 @@
       "disPrice": 125100,
       "url": "",
       "review": "999+"
-    }
+    },
+    "count": 2
   },
   {
     "userId": "john",
@@ -27,6 +28,7 @@
       "disPrice": 102960,
       "url": "",
       "review": "999+"
-    }
+    },
+    "count": 1
   }
 ]

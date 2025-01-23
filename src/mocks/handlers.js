@@ -90,6 +90,7 @@ export const handlers = [
     const data = {
       userId: req.userId,
       product: req.product,
+      count: 1,
     };
     cart.push(data);
     return HttpResponse.json(data);
@@ -104,6 +105,24 @@ export const handlers = [
   // 장바구니 전체 삭제
   http.post("/delete-all-cart", async () => {
     cart = [];
+    return HttpResponse.json(cart);
+  }),
+  // 상품 수량 감소
+  http.post("cart-count-down", async ({ request }) => {
+    const req = await request.json();
+    const idx = req.index;
+
+    if (cart[idx].count !== 1) cart[idx].count -= 1;
+
+    return HttpResponse.json(cart);
+  }),
+  // 상품 수량 증가
+  http.post("cart-count-up", async ({ request }) => {
+    const req = await request.json();
+    const idx = req.index;
+
+    cart[idx].count += 1;
+
     return HttpResponse.json(cart);
   }),
 ];
