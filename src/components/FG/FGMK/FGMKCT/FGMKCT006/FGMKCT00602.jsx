@@ -34,7 +34,7 @@ function FGMKCT00602({ product, onClick }) {
                   cursor: "pointer",
                   position: "absolute",
                   right: "0px",
-                  fontSize:"1.2rem"
+                  fontSize: "1.2rem",
                 }}
                 type="button"
                 onClick={() => onClick(index)}
@@ -61,7 +61,21 @@ function FGMKCT00602({ product, onClick }) {
                     {product && `${formatPrice(item.product.oriPrice)}원`}
                   </span>
                 </div>
-                <div></div>
+                <div
+                  style={{
+                    backgroundColor: "#ECEEF3",
+                    padding: "5px 10px",
+                    display: "flex",
+                    gap: "10px",
+                    alignItems: "center",
+                    width: "fit-content",
+                    borderRadius: "50px",
+                  }}
+                >
+                  <CountButton>-</CountButton>
+                  <span style={{fontWeight:"bold"}}>1</span>
+                  <CountButton>+</CountButton>
+                </div>
               </CountDiv>
             </Countbox>
           </ProductBox>
@@ -77,7 +91,7 @@ const StyledLayout = styled.div`
   margin-bottom: 10px;
 `;
 const ProductBox = styled.div`
-  margin-bottom: 10px;
+  padding-bottom: 20px;
 `;
 const StyledBox = styled.div`
   position: relative;
@@ -96,5 +110,14 @@ const ImgBox = styled.div`
   overflow: hidden;
   border-radius: 10px;
 `;
-const CountDiv = styled.div``;
+const CountDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+const CountButton = styled.button`
+  cursor: pointer;
+  font-size: 1.3rem;
+  border: none;
+`;
 export default FGMKCT00602;

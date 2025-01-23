@@ -9,6 +9,8 @@ function FGMKCT006() {
   const auth = useAuth();
   const user = auth.userInfo();
   const [myCart, setMyCart] = useState(null);
+  const [totalOriPrice, setTotaOriPrice] = useState(0);
+  const [totalDisPrice, setOriPrice] = useState(0);
   // 장바구니 전체삭제
   const deleteAllCart = async () => {
     const res = await ApiUtils.sendPost("/delete-all-cart", { userId: user });
@@ -50,7 +52,7 @@ function FGMKCT006() {
 const StyledLayout = styled.div`
   margin: 0;
   background-color: #f2f5f8;
-  padding: 100px;
+  padding-bottom: 70px;
 `;
 const StyledBox = styled.div`
   width: 1040px;
