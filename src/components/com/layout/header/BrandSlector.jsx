@@ -3,7 +3,7 @@ import styled from "styled-components";
 function BrandSlector({ url, btnText, onClick, $active }) {
   return (
     <BrandSelectorButton
-      href={url}
+      href={url && url}
       onClick={(e) => {
         e.preventDefault();
         if (onClick) onClick();

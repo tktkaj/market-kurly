@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import FGMKDT00403 from "../../../../../components/FG/FGMK/FGMKDT/FGMKDT004/FGMKDT00403";
 import FGMKDT00401 from "../../../../../components/FG/FGMK/FGMKDT/FGMKDT004/FGMKDT00401";
@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 function ProductDetail() {
   const core = useCore();
   const user = useSelector((state) => state.userInfo?.id);
+  const product = core.getPageParams().params.product;
   const src =
     "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/bbf4ea2d-c7e8-4b19-90cf-9021cefcee05.jpg";
 
@@ -26,9 +27,9 @@ function ProductDetail() {
             height: "550px",
           }}
         >
-          <img src={src} alt="" width="100%" height="100%" />
+          <img src={product && product.img} alt="" width="100%" height="100%" />
         </div>
-        <FGMKDT00403 />
+        <FGMKDT00403 productInfo={product}/>
       </ProductDetailbox>
       <FGMKDT00401 />
       <ProductDetailDescription>

@@ -3,21 +3,17 @@ import styled from "styled-components";
 import FGMKDT00402 from "./FGMKDT00402";
 import BaseSelect from "../../../../com/base/BaseSelect";
 import BaseButton from "../../../../com/base/BaseButton";
-function FGMKDT00403() {
+import ApiUtils from "../../../../../utils/ApiUtils";
+import LayerUtils from "../../../../../utils/LayerUtils";
+import { useSelector } from "react-redux";
+function FGMKDT00403({ productInfo }) {
   const [totalPrice, setTotalPrice] = useState(0);
   const [selPrice, setSelPrice] = useState(0);
+  const user = useSelector((state) => state.userInfo.id);
   const formatPrice = (price) => {
     return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
   const product = {
-    dileveryType: "샛별배송",
-    title: "[일본디저트여행] 인기 디저트 모아보기(택1)",
-    subtitle: "방방곡곡 떠나는 일본 디저트 여행",
-    disPercent: "7%",
-    disPrice: "12,920원~",
-    oriPrice: "13,900원",
-    origin: "원산지: 상품설명/상세정보 참조",
-    coupon: true,
     productDetail: [
       {
         title: "배송",
@@ -45,24 +41,9 @@ function FGMKDT00403() {
     ],
     list: [
       {
-        name: "[일본디저트여행] 와카야마 백도 젤리",
-        originalPrice: 15000,
-        salePrice: 12000,
-      },
-      {
-        name: "[일본디저트여행] 훗카이도 멜론 젤리",
-        originalPrice: 13000,
-        salePrice: 11000,
-      },
-      {
-        name: "[일본디저트여행] 도쿄 버터 크로와상 파이",
-        originalPrice: 8000,
-        salePrice: 6000,
-      },
-      {
-        name: "[일본디저트여행] 교토 아라시야마 말차 당고",
-        originalPrice: 20000,
-        salePrice: 16000,
+        name: productInfo.title,
+        originalPrice: productInfo.oriPrice,
+        salePrice: productInfo.disPrice,
       },
     ],
   };
@@ -78,6 +59,15 @@ function FGMKDT00403() {
   const bellIconSrc =
     "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIHN0cm9rZT0iI0NDQyIgc3Ryb2tlLXdpZHRoPSIxLjYiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTEyLjY2NiAyM2EzLjMzMyAzLjMzMyAwIDEgMCA2LjY2NiAwIi8+CiAgICAgICAgPHBhdGggZD0iTTI1Ljk5OCAyMi43MzhINmwuMDEzLS4wM2MuMDc2LS4xMzUuNDcxLS43MDQgMS4xODYtMS43MDlsLjc1LTEuMDV2LTYuNjM1YzAtNC40ODUgMy40MzgtOC4xNCA3Ljc0MS04LjMwOEwxNiA1YzQuNDQ2IDAgOC4wNSAzLjcyMiA4LjA1IDguMzE0djYuNjM0bDEuNzA3IDIuNDExYy4xNzMuMjUzLjI1NC4zOC4yNDIuMzh6IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KICAgIDwvZz4KPC9zdmc+Cg==";
 
+  const fetchMyCart = async (value) => {
+    const res = await ApiUtils.sendPost("/cart", {
+      userId: user,
+      product: value,
+    });
+    if (res) {
+      LayerUtils.showAlert(`${value.title}상품이 장바구니 추가되었습니다.`);
+    }
+  };
   useEffect(() => {
     setTotalPrice(totalPrice + selPrice);
   }, [selPrice]);
@@ -85,9 +75,9 @@ function FGMKDT00403() {
     <ShoppingOptionsLayout>
       <ProductTitle>
         <div>
-          <DeliveryDiv>{product.dileveryType}</DeliveryDiv>
+          <DeliveryDiv>샛별배송</DeliveryDiv>
           <h3 style={{ fontSize: "1.3rem", margin: "0px", marginTop: "10px" }}>
-            {product.title}
+            {productInfo && productInfo.title}
           </h3>
           <h1
             style={{
@@ -97,7 +87,7 @@ function FGMKDT00403() {
               color: "#b5b5b5",
             }}
           >
-            {product.subtitle}
+            {productInfo && productInfo.subtitle}
           </h1>
         </div>
         <div style={{ display: "flex", alignItems: "center" }}>{shareIcon}</div>
@@ -106,14 +96,14 @@ function FGMKDT00403() {
         <span
           style={{ fontSize: "1.6rem", color: "#fa622f", fontWeight: "bold" }}
         >
-          {product.disPercent}
+          {productInfo && productInfo.disPercent}
         </span>
         <span style={{ fontSize: "1.6rem", fontWeight: "bold" }}>
-          {product.disPrice}
+          {productInfo && `${formatPrice(productInfo.disPrice)}원`}
         </span>
       </DisPriceDiv>
       <OriPriceDiv>
-        {product.oriPrice}
+        {productInfo && `${formatPrice(productInfo.oriPrice)}원`}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="21"
@@ -136,7 +126,7 @@ function FGMKDT00403() {
           ></path>
         </svg>
       </OriPriceDiv>
-      <OriginDiv>{product.origin}</OriginDiv>
+      <OriginDiv>{productInfo && product.origin}</OriginDiv>
       <div style={{ marginTop: "10px" }}>
         <FGMKDT00402 price="10000" />
       </div>
@@ -192,7 +182,9 @@ function FGMKDT00403() {
           size="lg"
           variant="purple"
           type="button"
-          onClick={() => {}}
+          onClick={() => {
+            fetchMyCart(productInfo);
+          }}
         />
       </UtilButtonDiv>
     </ShoppingOptionsLayout>

@@ -38,7 +38,6 @@ export const handlers = [
     await sleep(200);
 
     const user = userList.find((user) => user.id === id && user.pw === pw);
-    console.log(user);
 
     if (!user) {
       return new HttpResponse(null);
@@ -55,8 +54,6 @@ export const handlers = [
   http.post("/products", async ({ request }) => {
     await sleep(200);
     const req = await request.json();
-    console.log("나야 필터,");
-    console.log(typeof req.filter);
     const categoryFilter = req.filter || [];
 
     const productList = product.filter((item) => {

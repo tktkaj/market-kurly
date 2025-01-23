@@ -4,7 +4,7 @@ import styled from "styled-components";
 function UtilItem({ linkName, url, color, children, onClick }) {
   return (
     <StyledLink
-      href={url}
+      href={url && url}
       color={color || "#333"}
       onClick={(e) => {
         e.preventDefault();
