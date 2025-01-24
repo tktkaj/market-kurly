@@ -46,8 +46,11 @@ function NewProduct() {
       userId: user,
       product: value,
     });
-    if(res){
+    if(res.success){
       LayerUtils.showAlert(`${value.title}상품이 장바구니 추가되었습니다.`)
+    }
+    else{
+      LayerUtils.showAlert("장바구니 추가를 실패하였습니다.")
     }
   };
 

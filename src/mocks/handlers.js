@@ -79,21 +79,44 @@ export const handlers = [
   }),
   // 장바구니 조회
   http.post("/myCart", async ({ request }) => {
-    const {userId} = await request.json();
+    const { userId } = await request.json();
     const myCart = cart.filter((item) => item.userId === userId);
     return HttpResponse.json(myCart);
   }),
   // 장바구니 담기
   http.post("/cart", async ({ request }) => {
-    const req = await request.json();
-    const data = {
-      userId: req.userId,
-      product: req.product,
-      count: 1,
-    };
-    cart.push(data);
-    return HttpResponse.json(data);
+    try {
+      // userId, product param 받음
+      const { userId, product } = await request.json();
+
+      // user정보가 들어있는 개체배열의 인덱스 찾기
+      const userIndex = cart.findIndex((item) => item.userId === userId);
+      // 장바구니 안에 추가될 상품이 있는지 확인
+      const cartProduct = cart[userIndex].product;
+      const productIndex = cartProduct.findIndex(
+        (item) => item.title === product.title
+      );
+      console.log()
+      // 상품이 있다면 기존 상품 count++, 없다면 count속성 추가 후 삽입
+      if (productIndex !== -1) {
+        cart[userIndex].product[productIndex].count++;
+      } else {
+        product.count = 1;
+        cart[userIndex].product.push(product);
+      }
+
+      return HttpResponse.json({
+        success: true,
+        cart: cart[userIndex].product,
+      });
+    } catch (error) {
+      return HttpResponse.json(
+        { success: false, error: error.message },
+        { status: 400 }
+      );
+    }
   }),
+
   // 장바구니 부분 삭제
   http.post("/delete-cart", async ({ request }) => {
     const req = await request.json();

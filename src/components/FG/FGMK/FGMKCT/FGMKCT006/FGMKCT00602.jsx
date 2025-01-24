@@ -5,10 +5,6 @@ function FGMKCT00602({ myCart, onClick, countUp, countDown }) {
   const formatPrice = (price) => {
     return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
-
-  useEffect(() => {
-    console.log("마이카트는", myCart);
-  });
   return (
     <StyledLayout>
       {myCart &&

@@ -49,8 +49,6 @@ function FGMKCT006() {
     const res = await ApiUtils.sendPost("/myCart", { userId: user });
     if (res) {
       setMyCart(res);
-      setTotalOriPrice(calculateTotalOriPrice(res));
-      setTotalDisPrice(calculateTotalDisPrice(res));
     }
   };
   // 상품 수량 감소
@@ -59,19 +57,14 @@ function FGMKCT006() {
     const res = await ApiUtils.sendPost("/myCart", { userId: user });
     if (res) {
       setMyCart(res);
-      setTotalOriPrice(calculateTotalOriPrice(res));
-      setTotalDisPrice(calculateTotalDisPrice(res));
     }
   };
   // 장바구니 조회
   useEffect(() => {
     const fetchMyCart = async () => {
       const res = await ApiUtils.sendPost("/myCart", { userId: user });
-      console.log(`res갑은 ${res}`)
       if (res) {
         setMyCart(res);
-        setTotalOriPrice(calculateTotalOriPrice(res));
-        setTotalDisPrice(calculateTotalDisPrice(res));
       }
     };
     fetchMyCart();
