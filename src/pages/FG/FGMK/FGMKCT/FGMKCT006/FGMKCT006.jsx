@@ -47,17 +47,16 @@ function FGMKCT006() {
     }, 0);
   };
   // 상품 수량 증가
-  const countUp = async (idx) => {
-    await ApiUtils.sendPost("/cart-count-up", { index: idx });
+  const countUp = async (item) => {
+    await ApiUtils.sendPost("/cart-count-up", { userId: user, product: item });
     const res = await ApiUtils.sendPost("/myCart", { userId: user });
     if (res) {
       setMyCart(res);
     }
   };
   // 상품 수량 감소
-  const countDown = async (idx) => {
-    await ApiUtils.sendPost("/cart-count-down", { index: idx });
-    const res = await ApiUtils.sendPost("/myCart", { userId: user });
+  const countDown = async (item) => {
+    const res = await ApiUtils.sendPost("/cart-count-down", { userId: user, product: item });
     if (res) {
       setMyCart(res);
     }

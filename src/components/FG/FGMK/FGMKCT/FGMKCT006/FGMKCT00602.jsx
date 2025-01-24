@@ -70,12 +70,12 @@ function FGMKCT00602({ myCart, onClick, countUp, countDown }) {
                 >
                   <CountButton
                     disabled={item.count === 1}
-                    onClick={() => countDown(index)}
+                    onClick={() => countDown(item)}
                   >
                     -
                   </CountButton>
                   <span style={{ fontWeight: "bold" }}>{item.count}</span>
-                  <CountButton onClick={() => countUp(index)}>+</CountButton>
+                  <CountButton onClick={() => countUp(item)}>+</CountButton>
                 </div>
               </CountDiv>
             </Countbox>

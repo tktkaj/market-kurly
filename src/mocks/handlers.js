@@ -133,7 +133,7 @@ export const handlers = [
     const productIndex = cartProduct.findIndex(
       (item) => item.title === product.title
     );
-    
+
     cart[userIndex].product.splice(productIndex, 1);
     const myCart = cart.filter((item) => item.userId === userId);
 
@@ -153,21 +153,35 @@ export const handlers = [
   }),
   // 상품 수량 감소
   http.post("/cart-count-down", async ({ request }) => {
-    const req = await request.json();
-    const idx = req.index;
+    const { userId, product } = await request.json();
+    // user정보가 들어있는 개체배열의 인덱스 찾기
+    const userIndex = cart.findIndex((item) => item.userId === userId);
+    // 장바구니 안에 추가될 상품이 있는지 확인
+    const cartProduct = cart[userIndex].product;
+    const productIndex = cartProduct.findIndex(
+      (item) => item.title === product.title
+    );
 
-    if (cart[idx].count !== 1) cart[idx].count -= 1;
-
-    return HttpResponse.json(cart);
+    cart[userIndex].product[productIndex].count--;
+    const myCart = cart.filter((item) => item.userId === userId);
+    
+    return HttpResponse.json(myCart);
   }),
   // 상품 수량 증가
   http.post("/cart-count-up", async ({ request }) => {
-    const req = await request.json();
-    const idx = req.index;
-
-    cart[idx].count += 1;
-
-    return HttpResponse.json(cart);
+    const { userId, product } = await request.json();
+    // user정보가 들어있는 개체배열의 인덱스 찾기
+    const userIndex = cart.findIndex((item) => item.userId === userId);
+    // 장바구니 안에 추가될 상품이 있는지 확인
+    const cartProduct = cart[userIndex].product;
+    const productIndex = cartProduct.findIndex(
+      (item) => item.title === product.title
+    );
+    
+    cart[userIndex].product[productIndex].count++;
+    const myCart = cart.filter((item) => item.userId === userId);
+    
+    return HttpResponse.json(myCart);
   }),
 ];
 
