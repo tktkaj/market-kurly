@@ -84,6 +84,7 @@ export const handlers = [
   // 장바구니 조회
   http.post("/myCart", async ({ request }) => {
     const { userId } = await request.json();
+    console.log(`지금 user${userId}`);
     const myCart = cart.filter((item) => item.userId === userId);
     return HttpResponse.json(myCart);
   }),
@@ -123,7 +124,7 @@ export const handlers = [
 
   // 장바구니 부분 삭제
   http.post("/delete-cart", async ({ request }) => {
-    console.log("deleteCart Post start")
+    console.log("deleteCart Post start");
     const { userId, product } = await request.json();
     // user정보가 들어있는 개체배열의 인덱스 찾기
     const userIndex = cart.findIndex((item) => item.userId === userId);
@@ -132,16 +133,23 @@ export const handlers = [
     const productIndex = cartProduct.findIndex(
       (item) => item.title === product.title
     );
-    console.log(productIndex);
-
+    
     cart[userIndex].product.splice(productIndex, 1);
+    const myCart = cart.filter((item) => item.userId === userId);
 
-    return HttpResponse.json(cart);
+    return HttpResponse.json(myCart);
   }),
   // 장바구니 전체 삭제
-  http.post("/delete-all-cart", async () => {
-    cart = [];
-    return HttpResponse.json(cart);
+  http.post("/delete-all-cart", async ({ request }) => {
+    const { userId } = await request.json();
+    console.log(`userid는 ${userId}`);
+    if (userId) {
+      const userIndex = cart.findIndex((item) => item.userId === userId);
+      cart[userIndex].product = [];
+    }
+    const myCart = cart.filter((item) => item.userId === userId);
+    console.log(myCart);
+    return HttpResponse.json(myCart);
   }),
   // 상품 수량 감소
   http.post("/cart-count-down", async ({ request }) => {
