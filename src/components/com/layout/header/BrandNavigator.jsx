@@ -24,7 +24,8 @@ function BrandNavigator() {
   return (
     <BrandNavigatorLayout>
       <LogoBox
-        onClick={() => {core.goPage("/FG/FGMK/FGMKHM/FGMKHM001")
+        onClick={() => {
+          core.goPage("/FG/FGMK/FGMKHM/FGMKHM001");
         }}
       >
         {logo}

@@ -79,10 +79,8 @@ export const handlers = [
   }),
   // 장바구니 조회
   http.post("/myCart", async ({ request }) => {
-    const req = await request.json();
-    const userId = req.userId;
+    const {userId} = await request.json();
     const myCart = cart.filter((item) => item.userId === userId);
-
     return HttpResponse.json(myCart);
   }),
   // 장바구니 담기

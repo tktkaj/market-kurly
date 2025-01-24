@@ -67,6 +67,7 @@ function FGMKCT006() {
   useEffect(() => {
     const fetchMyCart = async () => {
       const res = await ApiUtils.sendPost("/myCart", { userId: user });
+      console.log(`res갑은 ${res}`)
       if (res) {
         setMyCart(res);
         setTotalOriPrice(calculateTotalOriPrice(res));

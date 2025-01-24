@@ -8,14 +8,14 @@ function BrandSlector({ url, btnText, onClick, $active }) {
         e.preventDefault();
         if (onClick) onClick();
       }}
-      active={$active}
+      active={$active.toString()}
     >
       {btnText}
     </BrandSelectorButton>
   );
 }
 const BrandSelectorButton = styled.a`
-  color: ${(props) => (props.active ? "#5f0080" : "#b5b5b5")};
+  color: ${(props) => (props.active === "true" ? "#5f0080" : "#b5b5b5")};
   background-color: #fff;
   border: none;
   font-size: 1.2rem;

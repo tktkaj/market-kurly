@@ -26,16 +26,16 @@ function FGMKPR00301({ detailFilter, handleDeatilFilter, handleDetailFilter }) {
             <path
               d="M13.78 3.96303C12.504 2.16973 10.4086 1 8.04 1C4.15192 1 1 4.15192 1 8.04C1 11.9281 4.15192 15.08 8.04 15.08C11.9281 15.08 15.08 11.9281 15.08 8.04"
               stroke="#ddd"
-              stroke-width="1.6"
-              stroke-linecap="square"
-              stroke-linejoin="round"
+              strokeWidth="1.6"
+              strokeLinecap="square"
+              strokeLinejoin="round"
             ></path>
             <path
               d="M14.4933 1L14.4933 4.52H10.9733"
               stroke="#ddd"
-              stroke-width="1.6"
-              stroke-linecap="square"
-              stroke-linejoin="round"
+              strokeWidth="1.6"
+              strokeLinecap="square"
+              strokeLinejoin="round"
             ></path>
           </svg>
           초기화
