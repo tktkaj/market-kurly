@@ -77,8 +77,8 @@ export const handlers = [
     });
     cart.push({
       userId: req.id,
-      product:[]
-    })
+      product: [],
+    });
     return HttpResponse.json(req);
   }),
   // 장바구니 조회
@@ -123,9 +123,19 @@ export const handlers = [
 
   // 장바구니 부분 삭제
   http.post("/delete-cart", async ({ request }) => {
-    const req = await request.json();
-    const idx = req.index;
-    cart.splice(idx, 1);
+    console.log("deleteCart Post start")
+    const { userId, product } = await request.json();
+    // user정보가 들어있는 개체배열의 인덱스 찾기
+    const userIndex = cart.findIndex((item) => item.userId === userId);
+    // 장바구니 안에 추가될 상품이 있는지 확인
+    const cartProduct = cart[userIndex].product;
+    const productIndex = cartProduct.findIndex(
+      (item) => item.title === product.title
+    );
+    console.log(productIndex);
+
+    cart[userIndex].product.splice(productIndex, 1);
+
     return HttpResponse.json(cart);
   }),
   // 장바구니 전체 삭제

@@ -22,8 +22,11 @@ function FGMKCT006() {
     if (res) setMyCart(res);
   };
   // 장바구니 선택삭제
-  const deleteCart = async (idx) => {
-    const res = await ApiUtils.sendPost("/delete-cart", { index: idx });
+  const deleteCart = async (item) => {
+    const res = await ApiUtils.sendPost("/delete-cart", {
+      userId: user,
+      product: item,
+    });
     if (res) setMyCart(res);
   };
   // 원 가격의 총합을 계산하는 함수
@@ -63,7 +66,7 @@ function FGMKCT006() {
   useEffect(() => {
     const fetchMyCart = async () => {
       const res = await ApiUtils.sendPost("/myCart", { userId: user });
-      if ((res.length > 0)) {
+      if (res.length > 0) {
         setMyCart(res);
       }
     };

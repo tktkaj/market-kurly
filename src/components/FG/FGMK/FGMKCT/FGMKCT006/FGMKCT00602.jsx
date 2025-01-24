@@ -33,7 +33,7 @@ function FGMKCT00602({ myCart, onClick, countUp, countDown }) {
                   fontSize: "1.2rem",
                 }}
                 type="button"
-                onClick={() => onClick(index)}
+                onClick={() => onClick(item)}
               >
                 x
               </button>
