@@ -63,7 +63,7 @@ function FGMKCT006() {
   useEffect(() => {
     const fetchMyCart = async () => {
       const res = await ApiUtils.sendPost("/myCart", { userId: user });
-      if (res) {
+      if ((res.length > 0)) {
         setMyCart(res);
       }
     };

@@ -75,6 +75,10 @@ export const handlers = [
       email: req.email,
       role: req.role,
     });
+    cart.push({
+      userId: req.id,
+      product:[]
+    })
     return HttpResponse.json(req);
   }),
   // 장바구니 조회
@@ -91,12 +95,12 @@ export const handlers = [
 
       // user정보가 들어있는 개체배열의 인덱스 찾기
       const userIndex = cart.findIndex((item) => item.userId === userId);
+
       // 장바구니 안에 추가될 상품이 있는지 확인
       const cartProduct = cart[userIndex].product;
       const productIndex = cartProduct.findIndex(
         (item) => item.title === product.title
       );
-      console.log()
       // 상품이 있다면 기존 상품 count++, 없다면 count속성 추가 후 삽입
       if (productIndex !== -1) {
         cart[userIndex].product[productIndex].count++;
